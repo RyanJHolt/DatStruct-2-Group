@@ -56,16 +56,22 @@ class linkedList<F> {
         }
     }
 
-    public linkedNode getElement(F e){
-       linkedNode temp = head;
-        while (temp!=null && temp.getContents() != e)
-            temp=temp.next;
-        if (temp != null)
-            return temp;
-        return null;
-    }
-    public void clear() { //Empty list
-        head=null;
+    public linkedNode getElement(int n) {
+        linkedNode temp = head;
+        if (n == 1) {
+            return head;
+        } else {
+            while (temp != null) {
+                int i = 0;
+                while (i < (n - 1)) { //Get to the nth element
+                    temp = temp.next;
+                    i++;
+                }
+                if (temp.next != null) { //update nth element
+                    return temp.next;
+                }
+            }
+        }
     }
 
     public int size() {
