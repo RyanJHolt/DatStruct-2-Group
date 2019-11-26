@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0587a63c-a25b-4800-b3f2-953956edc372" name="CA2" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Users\Ryan Holt\OneDrive - Waterford Institute of Technology\Data structures\DatStruct-2-Group" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
