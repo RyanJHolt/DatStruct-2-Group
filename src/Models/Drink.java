@@ -5,18 +5,14 @@ public class Drink {
     public String originPlace;
     public String description;
     public String picture;
-    public double ABV;
-    public Object Ingredients;
-    public int ingredientQuantity;
+    public Recipe Recipe;
 
-    public Drink(String drinkName, String originPlace, String description, String picture, double ABV, Object ingredients, int quantity) {
+    public Drink(String drinkName, String originPlace, String description, String picture, double ABV, Recipe Recipe, int quantity) {
         this.drinkName = drinkName;
         this.originPlace = originPlace;
         this.description = description;
         this.picture = picture;
-        this.ABV = ABV;
-        Ingredients = ingredients;
-        this.ingredientQuantity = quantity;
+        this.Recipe = Recipe;
     }
 
     public String getDrinkName() {
@@ -51,16 +47,16 @@ public class Drink {
         this.picture = picture;
     }
 
-    public double getABV() {
-        return ABV;
+    /* public double getABV() {
+        return Recipe.getABV();
     }
 
     public void setABV(double ABV) {
-        this.ABV = ABV;
+        Recipe.setABV(ABV);
     }
 
     public Object getIngredients() {
-        return Ingredients;
+        return Recipe.getIngredients();
     }
 
     public void setIngredients(Object ingredients) {
@@ -73,5 +69,5 @@ public class Drink {
 
     public void setIngredientQuantity(int ingredientQuantity) {
         this.ingredientQuantity = ingredientQuantity;
-    }
+    }*/
 }
