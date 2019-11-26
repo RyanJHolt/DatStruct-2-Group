@@ -1,18 +1,22 @@
 package Models;
 
+import utils.linkedList;
+
 public class Drink {
     public String drinkName;
     public String originPlace;
     public String description;
     public String picture;
-    public Recipe Recipe;
+    public double ABV;
+    public linkedList ingredients;
+    public int Totalquantity = 0;
 
-    public Drink(String drinkName, String originPlace, String description, String picture, double ABV, Recipe Recipe, int quantity) {
+    public Drink(String drinkName, String originPlace, String description, String picture, linkedList ingredients) {
         this.drinkName = drinkName;
         this.originPlace = originPlace;
         this.description = description;
         this.picture = picture;
-        this.Recipe = Recipe;
+        this.ingredients = ingredients;
     }
 
     public String getDrinkName() {
@@ -47,27 +51,60 @@ public class Drink {
         this.picture = picture;
     }
 
-    /* public double getABV() {
-        return Recipe.getABV();
+    public double getABV() {
+        return ABV;
     }
 
     public void setABV(double ABV) {
-        Recipe.setABV(ABV);
+        this.ABV = ABV;
     }
 
-    public Object getIngredients() {
-        return Recipe.getIngredients();
+    public int getTotalquantity() {
+        return Totalquantity;
     }
 
-    public void setIngredients(Object ingredients) {
-        Ingredients = ingredients;
+    public void setTotalquantity(int Totalquantity) {
+        Totalquantity = Totalquantity;
     }
 
-    public int getIngredientQuantity() {
-        return ingredientQuantity;
+    public linkedList getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredientQuantity(int ingredientQuantity) {
-        this.ingredientQuantity = ingredientQuantity;
-    }*/
+    public void setIngredients(linkedList ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    private void calculateTotalQuantity(){
+        int Quantity = 0;
+        if (getTotalquantity() == 0) {
+            for (int i = 0; i < ingredients.size(); i++) {
+                Quantity += ingredients.getElement(i).getQuantity();
+            }
+        } setTotalquantity(Quantity);
+    }
+
+    private void calculateABV(){
+        double ABV = 0;
+        if (getTotalquantity() == 0)
+            calculateTotalQuantity();
+        for (int i = 0; i < ingredients.size(); i++){
+            Ingredient temp = (Ingredient) ingredients.getElement(i).getContents();
+            int quantity = ingredients.getElement(i).getQuantity();
+            ABV += temp.getABV()*(quantity/getTotalquantity());
+        }
+        setABV(ABV);
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        getIngredients().addElementH(ingredient);
+    }
+
+    public void updateIngredient(int n, Ingredient ingredient) {
+        getIngredients().updateElement(n, ingredient);
+    }
+
+    public void deleteIngredient(int n) {
+        getIngredients().deleteElement(n);
+    }
 }
