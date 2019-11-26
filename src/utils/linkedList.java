@@ -1,6 +1,6 @@
 package utils;
 
-class linkedList<F> {
+public class linkedList<F> {
     private linkedNode head=null;
 
     public void addElementH(F e) {
