@@ -71,7 +71,7 @@ class linkedList<F> {
                     return temp.next;
                 }
             }
-        }
+        } return null
     }
 
     public int size() {
