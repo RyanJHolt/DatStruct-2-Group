@@ -26,4 +26,11 @@ public class DrinkController {
     public void setDrinksList(linkedList<Drink> drinksList) {
         DrinksList = drinksList;
     }
+
+    /*public linkedList searchDrinkName(String drinkName){
+        linkedList<Drink> searchedDrinks = new linkedList();
+        for (int i = 0; i < getDrinksList().size(); i++){
+            if ()
+        }
+        return searchedDrinks; */
 }
