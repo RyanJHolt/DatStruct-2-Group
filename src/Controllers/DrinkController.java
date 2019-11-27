@@ -7,15 +7,15 @@ public class DrinkController {
 
     linkedList<Drink> DrinksList = new linkedList();
 
-    public void addDrink(Drink drink){
+    public void addDrink(Drink drink) {
         DrinksList.addElementH(drink);
     }
 
-    public void updateDrink(int n,Drink drink){
-        DrinksList.updateElement(n,drink);
+    public void updateDrink(int n, Drink drink) {
+        DrinksList.updateElement(n, drink);
     }
 
-    public void deleteDrink(int n){
+    public void deleteDrink(int n) {
         deleteDrink(n);
     }
 
