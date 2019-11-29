@@ -75,23 +75,24 @@ public class Drink {
         this.ingredients = ingredients;
     }
 
-    private void calculateTotalQuantity(){
+    private void calculateTotalQuantity() {
         int Quantity = 0;
         if (getTotalquantity() == 0) {
             for (int i = 0; i < ingredients.size(); i++) {
                 Quantity += ingredients.getElement(i).getQuantity();
             }
-        } setTotalquantity(Quantity);
+        }
+        setTotalquantity(Quantity);
     }
 
-    private void calculateABV(){
+    private void calculateABV() {
         double ABV = 0;
         if (getTotalquantity() == 0)
             calculateTotalQuantity();
-        for (int i = 0; i < ingredients.size(); i++){
+        for (int i = 0; i < ingredients.size(); i++) {
             Ingredient temp = (Ingredient) ingredients.getElement(i).getContents();
             int quantity = ingredients.getElement(i).getQuantity();
-            ABV += temp.getABV()*(quantity/getTotalquantity());
+            ABV += temp.getABV() * (quantity / getTotalquantity());
         }
         setABV(ABV);
     }

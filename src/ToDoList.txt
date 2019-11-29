@@ -1,0 +1,29 @@
+UI
+
+MAIN WINDOW
+
+>Drinks
+>>View Drinks
+>>Add Drink
+>>Edit Drink
+>>Delete Drink
+
+>Recipes
+>>View Recipes
+>>Add Recipes
+>>Edit Recipes
+>>Delete Recipes
+
+>Ingredients
+>>View Ingredients
+>>Add Ingredients
+>>Edit Recipes
+>>Delete Recipes
+
+SEARCH
+search all, narrow results by:
+- Drink
+- Recipe
+- Ingredient
+- Is Alcoholic
+-- all sorted alphabetically? with shell sort

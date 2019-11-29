@@ -3,34 +3,34 @@ package utils;
 import Models.Ingredient;
 
 public class linkedList<F> {
-    private linkedNode head=null;
+    private linkedNode head = null;
 
     public void addElementH(F e) {
         //Add element to head of list
-        linkedNode<F> node=new linkedNode<F>(e);
-        node.next=head;
-        head=node;
+        linkedNode<F> node = new linkedNode<F>(e);
+        node.next = head;
+        head = node;
     }
 
     public void addElementH(Ingredient e, int q) {
         //Add element to head of list
-        linkedNode<F> node=new linkedNode<F>(e,q);
-        node.next=head;
-        head=node;
+        linkedNode<F> node = new linkedNode<F>(e, q);
+        node.next = head;
+        head = node;
     }
 
     public void addElementT(F e) {
         //Add element to tail of list
-        linkedNode<F> node=new linkedNode<F>(e);
+        linkedNode<F> node = new linkedNode<F>(e);
         linkedNode temp = head;
-        while (temp != null &&  temp.next != null)
+        while (temp != null && temp.next != null)
             temp = temp.next;
         temp.next = node;
     }
 
-    public void updateElement(int n,F e) {
+    public void updateElement(int n, F e) {
         linkedNode temp = head;
-        if (n==1){
+        if (n == 1) {
             head = new linkedNode<F>(e);
         } else {
             while (temp != null) {
@@ -46,10 +46,10 @@ public class linkedList<F> {
         }
     }
 
-    public void updateElement(int n,Ingredient e, int q) {
+    public void updateElement(int n, Ingredient e, int q) {
         linkedNode temp = head;
-        if (n==1){
-            head = new linkedNode<F>(e,q);
+        if (n == 1) {
+            head = new linkedNode<F>(e, q);
         } else {
             while (temp != null) {
                 int i = 0;
@@ -58,7 +58,7 @@ public class linkedList<F> {
                     i++;
                 }
                 if (temp.next != null) { //update nth element
-                    temp.next = new linkedNode<F>(e,q);
+                    temp.next = new linkedNode<F>(e, q);
                 }
             }
         }
@@ -67,7 +67,7 @@ public class linkedList<F> {
 
     public void deleteElement(int n) {
         linkedNode temp = head;
-        if (n==1){
+        if (n == 1) {
             head = head.next;
         } else {
             while (temp != null) {
@@ -98,33 +98,41 @@ public class linkedList<F> {
                     return temp.next;
                 }
             }
-        } return null;
+        }
+        return null;
     }
 
     public int size() {
         int size = 0;
         linkedNode temp = head;
-        while (temp != null){
+        while (temp != null) {
             size++;
             temp = temp.next;
-        } return size;
+        }
+        return size;
     }
 
     public class linkedNode<F> {
-        public linkedNode next=null;
-        private F contents; //ADT reference!
+        public linkedNode next = null;
         public int quantity = 0;
+        private F contents; //ADT reference!
 
         public linkedNode(F contents) {
             this.contents = contents;
         }
-        public linkedNode(Ingredient contents,int quantity) {
-            this.contents = (F)contents;
+
+        public linkedNode(Ingredient contents, int quantity) {
+            this.contents = (F) contents;
             this.quantity = quantity;
         }
 
-        public F getContents() { return contents; }
-        public void setContents(F c) { contents=c; }
+        public F getContents() {
+            return contents;
+        }
+
+        public void setContents(F c) {
+            contents = c;
+        }
 
 
         public int getQuantity() {
