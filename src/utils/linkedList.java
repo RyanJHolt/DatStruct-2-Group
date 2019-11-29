@@ -48,10 +48,9 @@ public class linkedList<F> {
 
     public void updateElement(int n,Ingredient e, int q) {
         linkedNode temp = head;
-        if (n==1){
+        if (n==0){
             head = new linkedNode<F>(e,q);
         } else {
-            while (temp != null) {
                 int i = 0;
                 while (i < (n - 1)) { //Get to the nth element
                     temp = temp.next;
@@ -59,7 +58,6 @@ public class linkedList<F> {
                 }
                 if (temp.next != null) { //update nth element
                     temp.next = new linkedNode<F>(e,q);
-                }
             }
         }
     }
@@ -67,10 +65,11 @@ public class linkedList<F> {
 
     public void deleteElement(int n) {
         linkedNode temp = head;
-        if (n==1){
+        if (n==0 && size()>=1){
             head = head.next;
+        } else if (n==0 && size()==1) {
+            head = null;
         } else {
-            while (temp != null) {
                 int i = 0;
                 while (i < (n - 1)) { //Get to the nth element
                     temp = temp.next;
@@ -78,17 +77,15 @@ public class linkedList<F> {
                 }
                 if (temp.next != null) { //delete nth element
                     temp.next = temp.next.next;
-                }
             }
         }
     }
 
     public linkedNode getElement(int n) {
         linkedNode temp = head;
-        if (n == 1) {
+        if (n == 0) {
             return head;
         } else {
-            while (temp != null) {
                 int i = 0;
                 while (i < (n - 1)) { //Get to the nth element
                     temp = temp.next;
@@ -96,7 +93,6 @@ public class linkedList<F> {
                 }
                 if (temp.next != null) { //update nth element
                     return temp.next;
-                }
             }
         } return null;
     }
