@@ -31,7 +31,7 @@ public class linkedList<F> {
     public void updateElement(int n,F e) {
         linkedNode temp = head;
         if (n==1){
-            head = new linkedNode<F>(e);
+            head.setContents(e);
         } else {
             while (temp != null) {
                 int i = 0;
@@ -40,7 +40,7 @@ public class linkedList<F> {
                     i++;
                 }
                 if (temp.next != null) { //update nth element
-                    temp.next = new linkedNode<F>(e);
+                    temp.next.setContents(e);
                 }
             }
         }
@@ -49,7 +49,10 @@ public class linkedList<F> {
     public void updateElement(int n,Ingredient e, int q) {
         linkedNode temp = head;
         if (n==0){
-            head = new linkedNode<F>(e,q);
+            head.setContents(e);
+            head.setQuantity(q);
+            head.setABV(e.getABV());
+            return;
         } else {
                 int i = 0;
                 while (i < (n - 1)) { //Get to the nth element
@@ -57,7 +60,9 @@ public class linkedList<F> {
                     i++;
                 }
                 if (temp.next != null) { //update nth element
-                    temp.next = new linkedNode<F>(e,q);
+                    temp.setContents(e);
+                    temp.setQuantity(q);
+                    temp.setABV(e.getABV());
             }
         }
     }
@@ -110,6 +115,7 @@ public class linkedList<F> {
         public linkedNode next=null;
         private F contents; //ADT reference!
         public int quantity = 0;
+        public double ABV = 0;
 
         public linkedNode(F contents) {
             this.contents = contents;
@@ -117,16 +123,18 @@ public class linkedList<F> {
         public linkedNode(Ingredient contents,int quantity) {
             this.contents = (F)contents;
             this.quantity = quantity;
+            this.ABV = contents.getABV();
         }
 
         public F getContents() { return contents; }
         public void setContents(F c) { contents=c; }
 
+        public double getABV() { return ABV; }
+        public void setABV(double ABV) { this.ABV = ABV; }
 
         public int getQuantity() {
             return quantity;
         }
-
         public void setQuantity(int quantity) {
             this.quantity = quantity;
         }
