@@ -1,31 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindow">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindow">
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0">
-        <tabs>
-          <Tab text="Drinks">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Load Data" />
+                  <MenuItem mnemonicParsing="false" text="Save Data" />
+                  <MenuItem mnemonicParsing="false" text="Reset Data" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="View Database" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Accordion layoutY="25.0" prefHeight="223.0" prefWidth="600.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="185.0" prefWidth="600.0" text="Drinks">
+               <content>
+                  <GridPane alignment="CENTER" prefWidth="300.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <FlowPane prefHeight="372.0" prefWidth="600.0" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Recipes">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Ingredients">
-                <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
+                        <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER" GridPane.rowIndex="1" />
+                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+          <TitledPane animated="false" text="Recipes">
+               <content>
+                  <GridPane prefWidth="300.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Add Recipe" />
+                        <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Recipes" GridPane.rowIndex="1" />
+                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Recipes" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="35.0" text="Ingredients">
+               <content>
+                  <GridPane prefWidth="300.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
+                        <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1" />
+                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <AnchorPane layoutY="248.0" prefHeight="173.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="195.0" layoutY="48.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="211.0" text="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

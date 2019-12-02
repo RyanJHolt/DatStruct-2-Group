@@ -9,7 +9,7 @@ public class Drink {
     public String picture;
     public double ABV;
     public linkedList ingredients;
-    public int Totalquantity = 0;
+    public int totalQuantity = 0;
 
     public Drink(String drinkName, String originPlace, String description, String picture, linkedList ingredients) {
         this.drinkName = drinkName;
@@ -59,11 +59,11 @@ public class Drink {
         this.ABV = ABV;
     }
 
-    public int getTotalquantity() {
-        return Totalquantity;
+    public int getTotalQuantity() {
+        return totalQuantity;
     }
 
-    public void setTotalquantity(int Totalquantity) {
+    public void setTotalQuantity(int Totalquantity) {
         Totalquantity = Totalquantity;
     }
 
@@ -77,21 +77,21 @@ public class Drink {
 
     private void calculateTotalQuantity(){
         int Quantity = 0;
-        if (getTotalquantity() == 0) {
+        if (getTotalQuantity() == 0) {
             for (int i = 0; i < ingredients.size(); i++) {
                 Quantity += ingredients.getElement(i).getQuantity();
             }
-        } setTotalquantity(Quantity);
+        } setTotalQuantity(Quantity);
     }
 
     private void calculateABV(){
         double ABV = 0;
-        if (getTotalquantity() == 0)
+        if (getTotalQuantity() == 0)
             calculateTotalQuantity();
         for (int i = 0; i < ingredients.size(); i++){
             Ingredient temp = (Ingredient) ingredients.getElement(i).getContents();
             int quantity = ingredients.getElement(i).getQuantity();
-            ABV += temp.getABV()*(quantity/getTotalquantity());
+            ABV += temp.getABV()*(quantity/ getTotalQuantity());
         }
         setABV(ABV);
     }
