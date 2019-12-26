@@ -8,15 +8,15 @@ public class Drink {
     public String description;
     public String picture;
     public double ABV;
-    public linkedList ingredients;
+    public linkedList recipe;
     public int totalQuantity = 0;
 
-    public Drink(String drinkName, String originPlace, String description, String picture, linkedList ingredients) {
+    public Drink(String drinkName, String originPlace, String description, String picture, linkedList recipe) {
         this.drinkName = drinkName;
         this.originPlace = originPlace;
         this.description = description;
         this.picture = picture;
-        this.ingredients = ingredients;
+        this.recipe = recipe;
     }
 
     public String getDrinkName() {
@@ -67,19 +67,19 @@ public class Drink {
         Totalquantity = Totalquantity;
     }
 
-    public linkedList getIngredients() {
-        return ingredients;
+    public linkedList getRecipe() {
+        return recipe;
     }
 
-    public void setIngredients(linkedList ingredients) {
-        this.ingredients = ingredients;
+    public void setRecipe(linkedList recipe) {
+        this.recipe = recipe;
     }
 
     private void calculateTotalQuantity(){
         int Quantity = 0;
         if (getTotalQuantity() == 0) {
-            for (int i = 0; i < ingredients.size(); i++) {
-                Quantity += ingredients.getElement(i).getQuantity();
+            for (int i = 0; i < recipe.size(); i++) {
+                Quantity += recipe.getElement(i).getQuantity();
             }
         } setTotalQuantity(Quantity);
     }
@@ -88,23 +88,23 @@ public class Drink {
         double ABV = 0;
         if (getTotalQuantity() == 0)
             calculateTotalQuantity();
-        for (int i = 0; i < ingredients.size(); i++){
-            Ingredient temp = (Ingredient) ingredients.getElement(i).getContents();
-            int quantity = ingredients.getElement(i).getQuantity();
+        for (int i = 0; i < recipe.size(); i++){
+            Ingredient temp = (Ingredient) recipe.getElement(i).getContents();
+            int quantity = recipe.getElement(i).getQuantity();
             ABV += temp.getABV()*(quantity/ getTotalQuantity());
         }
         setABV(ABV);
     }
 
     public void addIngredient(Ingredient ingredient) {
-        getIngredients().addElementH(ingredient);
+        getRecipe().addElementH(ingredient);
     }
 
     public void updateIngredient(int n, Ingredient ingredient) {
-        getIngredients().updateElement(n, ingredient);
+        getRecipe().updateElement(n, ingredient);
     }
 
     public void deleteIngredient(int n) {
-        getIngredients().deleteElement(n);
+        getRecipe().deleteElement(n);
     }
 }
