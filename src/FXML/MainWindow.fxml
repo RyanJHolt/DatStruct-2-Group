@@ -18,9 +18,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Load Data" />
-                  <MenuItem mnemonicParsing="false" text="Save Data" />
-                  <MenuItem mnemonicParsing="false" text="Reset Data" />
+              <MenuItem mnemonicParsing="false" onAction="#LoadData" text="Load Data" />
+                  <MenuItem mnemonicParsing="false" onAction="#SaveData" text="Save Data" />
+                  <MenuItem mnemonicParsing="false" onAction="#ResetData" text="Reset Data" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="View">
@@ -44,7 +44,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="AddDrinkWindow" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
+                        <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
                         <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER" GridPane.rowIndex="1" />
                         <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
                      </children>
@@ -63,7 +63,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
+                        <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
                         <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1" />
                         <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
                      </children>

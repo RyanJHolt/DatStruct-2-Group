@@ -86,6 +86,11 @@ public class linkedList<F> {
         }
     }
 
+    //clears the list
+    public void Clear() {
+        head = null;
+    }
+
     public linkedNode getElement(int n) {
         linkedNode temp = head;
         if (n == 0) {

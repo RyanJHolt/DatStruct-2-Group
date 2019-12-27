@@ -1,27 +1,70 @@
 package Controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import utils.IO;
+import utils.Main;
 
 public class MainWindowController {
 
     @FXML
-    private Button AddDrinkWindow;
+    void AddDrinkWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/AddDrink.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Add A Drink");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     @FXML
-    private Button EditDrinkWindow;
+    void AddIngredientWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/AddIngredient.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Add An Ingredient");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     @FXML
-    private Button RemoveDrinkWindow;
+    void LoadData() {
+        try {
+            IO input = new IO();
+            input.load();
+            System.out.println("Loaded successfully!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     @FXML
-    private Button AddIngredientWindow;
+    void SaveData() {
+        try {
+            IO output = new IO();
+            output.save();
+            System.out.println("Saved successfully!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     @FXML
-    private Button EditIngredientWindow;
-
-    @FXML
-    private Button RemoveIngredientWindow;
-
-
+    void ResetData() {
+        Main.drinkList.Clear();
+        System.out.println("All data cleared! Load to restore, or Save to clear permanently.");
+    }
 }
