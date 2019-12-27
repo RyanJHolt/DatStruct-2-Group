@@ -41,6 +41,36 @@ public class MainWindowController {
     }
 
     @FXML
+    void RemoveIngredientWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/RemoveIngredient.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Remove An Ingredient");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void RemoveDrinkWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/RemoveDrink.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Remove A Drink");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     void LoadData() {
         try {
             IO input = new IO();

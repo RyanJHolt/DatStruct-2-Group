@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
         <menus>
@@ -46,7 +38,7 @@
                      <children>
                         <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
                         <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER" GridPane.rowIndex="1" />
-                        <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </content>
@@ -65,7 +57,7 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
                         <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1" />
-                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
+                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </content>
