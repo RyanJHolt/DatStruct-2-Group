@@ -3,7 +3,7 @@ package Models;
 import utils.linkedList;
 
 public class Drink {
-    public String drinkName;
+    public String name;
     public String originPlace;
     public String description;
     public String picture;
@@ -12,19 +12,20 @@ public class Drink {
     public int totalQuantity = 0;
 
     public Drink(String drinkName, String originPlace, String description, String picture, linkedList recipe) {
-        this.drinkName = drinkName;
+        this.name = drinkName;
         this.originPlace = originPlace;
         this.description = description;
         this.picture = picture;
         this.recipe = recipe;
+        calculateABV();
     }
 
-    public String getDrinkName() {
-        return drinkName;
+    public String getName() {
+        return name;
     }
 
-    public void setDrinkName(String drinkName) {
-        this.drinkName = drinkName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getOriginPlace() {

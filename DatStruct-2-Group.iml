@@ -10,5 +10,6 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="JavaFX" level="application" />
     <orderEntry type="library" name="com.thoughtworks.xstream:xstream:1.4.11.1" level="project" />
+    <orderEntry type="library" name="xstream-1.4.11.1" level="project" />
   </component>
 </module>

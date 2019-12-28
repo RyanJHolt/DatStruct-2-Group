@@ -1,5 +1,6 @@
 package utils;
 
+import Models.Drink;
 import Models.Ingredient;
 
 public class linkedList<F> {
@@ -28,22 +29,31 @@ public class linkedList<F> {
         temp.next = node;
     }
 
+    public void addElementT(Ingredient e, int q) {
+        //Add element to tail of list
+        linkedNode<F> node=new linkedNode<F>(e,q);
+        linkedNode temp = head;
+        while (temp != null &&  temp.next != null)
+            temp = temp.next;
+        temp.next = node;
+    }
+
     public void updateElement(int n,F e) {
         linkedNode temp = head;
-        if (n==1){
+        if (n==0){
             head.setContents(e);
         } else {
             while (temp != null) {
-                int i = 0;
-                while (i < (n - 1)) { //Get to the nth element
-                    temp = temp.next;
-                    i++;
-                }
-                if (temp.next != null) { //update nth element
-                    temp.next.setContents(e);
-                }
-            }
+        int i = 0;
+        while (i < (n - 1)) { //Get to the nth element
+            temp = temp.next;
+            i++;
         }
+        if (temp.next != null) { //update nth element
+            temp.next.setContents(e);
+        }
+    }
+}
     }
 
     public void updateElement(int n,Ingredient e, int q) {
@@ -51,7 +61,6 @@ public class linkedList<F> {
         if (n==0){
             head.setContents(e);
             head.setQuantity(q);
-            head.setABV(e.getABV());
             return;
         } else {
                 int i = 0;
@@ -62,7 +71,6 @@ public class linkedList<F> {
                 if (temp.next != null) { //update nth element
                     temp.setContents(e);
                     temp.setQuantity(q);
-                    temp.setABV(e.getABV());
             }
         }
     }
@@ -107,6 +115,14 @@ public class linkedList<F> {
         } return null;
     }
 
+    public Ingredient getIngredient(int n) {
+        return (Ingredient) getElement(n).getContents();
+    }
+
+    public Drink getDrink(int n) {
+        return (Drink) getElement(n).getContents();
+    }
+
     public int size() {
         int size = 0;
         linkedNode temp = head;
@@ -120,7 +136,6 @@ public class linkedList<F> {
         public linkedNode next=null;
         private F contents; //ADT reference!
         public int quantity = 0;
-        public double ABV = 0;
 
         public linkedNode(F contents) {
             this.contents = contents;
@@ -128,14 +143,10 @@ public class linkedList<F> {
         public linkedNode(Ingredient contents,int quantity) {
             this.contents = (F)contents;
             this.quantity = quantity;
-            this.ABV = contents.getABV();
         }
 
         public F getContents() { return contents; }
         public void setContents(F c) { contents=c; }
-
-        public double getABV() { return ABV; }
-        public void setABV(double ABV) { this.ABV = ABV; }
 
         public int getQuantity() {
             return quantity;
