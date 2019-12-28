@@ -24,18 +24,26 @@ public class linkedList<F> {
         //Add element to tail of list
         linkedNode<F> node=new linkedNode<F>(e);
         linkedNode temp = head;
-        while (temp != null &&  temp.next != null)
-            temp = temp.next;
-        temp.next = node;
+        if(head == null){
+            head=node;
+        } else {
+            while (temp.next != null)
+                temp = temp.next;
+            temp.next = node;
+        }
     }
 
     public void addElementT(Ingredient e, int q) {
         //Add element to tail of list
         linkedNode<F> node=new linkedNode<F>(e,q);
         linkedNode temp = head;
-        while (temp != null &&  temp.next != null)
-            temp = temp.next;
-        temp.next = node;
+        if(head == null){
+            head=node;
+        } else {
+            while (temp != null && temp.next != null)
+                temp = temp.next;
+            temp.next = node;
+        }
     }
 
     public void updateElement(int n,F e) {
@@ -99,6 +107,10 @@ public class linkedList<F> {
         head = null;
     }
 
+    public linkedNode getHead(){
+        return head;
+    }
+
     public linkedNode getElement(int n) {
         linkedNode temp = head;
         if (n == 0) {
@@ -109,7 +121,7 @@ public class linkedList<F> {
                     temp = temp.next;
                     i++;
                 }
-                if (temp.next != null) { //update nth element
+                if (temp.next != null) { //return nth element
                     return temp.next;
             }
         } return null;
