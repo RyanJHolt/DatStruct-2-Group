@@ -1,11 +1,27 @@
 package Controllers;
 
 import Models.Drink;
+import Models.Ingredient;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import utils.linkedList;
 
 public class DrinkController {
 
-    linkedList<Drink> DrinksList = new linkedList();
+    @FXML
+    TextField name;
+    @FXML
+    TextField origin;
+    @FXML
+    TextField imageURL;
+    @FXML
+    TextArea description;
+    @FXML
+    ListView<Ingredient> ingredientList;
+
+    public static linkedList<Drink> DrinksList = new linkedList();
 
     public void addDrink(Drink drink) {
         DrinksList.addElementH(drink);
@@ -25,6 +41,14 @@ public class DrinkController {
 
     public void setDrinksList(linkedList<Drink> drinksList) {
         DrinksList = drinksList;
+    }
+
+    @FXML
+    public void addDrinkToList() {
+        linkedList<Ingredient> l = new linkedList<>();
+        l.addElementH(ingredientList.getSelectionModel().getSelectedItem(), (int)ingredientList.getSelectionModel().getSelectedItem().getABV());
+        Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
+        addDrink(d);
     }
 
     /*public linkedList searchDrinkName(String drinkName){
