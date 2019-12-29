@@ -4,6 +4,7 @@ import Models.Drink;
 import Models.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import utils.linkedList;
@@ -24,6 +25,7 @@ public class DrinkController {
     @FXML
     void initialize() {
         ingredientList.getItems().clear();
+        ingredientList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         if (IngredientController.IngredientsList.size() > 0)
             for (linkedList.linkedNode i = IngredientController.IngredientsList.getHead(); i != null; i = i.next) {
                 ingredientList.getItems().add((Ingredient)i.getContents());
