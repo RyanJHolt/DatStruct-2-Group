@@ -7,7 +7,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import utils.hashMap;
 import utils.linkedList;
+import utils.shellSort;
 
 public class DrinkController {
 
@@ -20,7 +22,7 @@ public class DrinkController {
     @FXML
     TextArea description;
     @FXML
-    ListView<Ingredient> ingredientList;
+    ListView<linkedList.linkedNode> ingredientList;
 
     @FXML
     void initialize() {
@@ -28,22 +30,29 @@ public class DrinkController {
         ingredientList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         if (IngredientController.IngredientsList.size() > 0)
             for (linkedList.linkedNode i = IngredientController.IngredientsList.getHead(); i != null; i = i.next) {
-                ingredientList.getItems().add((Ingredient)i.getContents());
+                ingredientList.getItems().add(i);
             }
     }
 
     public static linkedList<Drink> DrinksList = new linkedList();
+    public static hashMap<String,Drink> DrinksMap = new hashMap<>();
 
     public void addDrink(Drink drink) {
         DrinksList.addElementH(drink);
+        DrinksMap.add(drink.name,drink);
     }
 
     public void updateDrink(int n, Drink drink) {
+        if (!DrinksList.getDrink(n).getName().equals(drink.name)){
+            DrinksMap.removeKey(drink.name);
+        } DrinksMap.add(drink.name,drink);
         DrinksList.updateElement(n, drink);
     }
 
     public void deleteDrink(int n) {
-        deleteDrink(n);
+        String temp = DrinksList.getDrink(n).getName();
+        DrinksList.deleteElement(n);
+        DrinksMap.removeKey(temp);
     }
 
     public linkedList<Drink> getDrinksList() {
@@ -54,18 +63,27 @@ public class DrinkController {
         DrinksList = drinksList;
     }
 
+    public hashMap<String, Drink> getDrinksMap() {
+        return DrinksMap;
+    }
+
+    public void setDrinksMap(hashMap<String, Drink> drinksMap) {
+        DrinksMap = drinksMap;
+    }
+
     @FXML
     public void addDrinkToList() {
         linkedList<Ingredient> l = new linkedList<>();
-        l.addElementH(ingredientList.getSelectionModel().getSelectedItem(), (int)ingredientList.getSelectionModel().getSelectedItem().getABV());
+        l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), (int)ingredientList.getSelectionModel().getSelectedItem().quantity);
         Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
         addDrink(d);
     }
 
-    /*public linkedList searchDrinkName(String drinkName){
-        linkedList<Drink> searchedDrinks = new linkedList();
-        for (int i = 0; i < getDrinksList().size(); i++){
-            if ()
-        }
-        return searchedDrinks; */
+    public void sortDrinkAlphabet(){
+        shellSort.sortAlpha(DrinksList);
+    }
+
+    public void sortDrinkABV(){
+        shellSort.sortABV(DrinksList);
+    }
 }

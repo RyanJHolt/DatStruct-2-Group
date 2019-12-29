@@ -2,7 +2,7 @@ package utils;
 
 public class shellSort {
 
-    public void sortABV(linkedList a){
+    public static void sortABV(linkedList a){
         int listSize = a.size();
         for (int gap = listSize/2; gap > 0; gap /= 2 ){ //creates large gap than reduces it after every pass
             for (int i = gap; i < listSize; i += 1){ // Do a gapped insertion sort for this gap size. keeps adding one more element until the entire array is gap sorted
@@ -16,7 +16,7 @@ public class shellSort {
         }
     }
 
-    public void sortAlpha(linkedList a){
+    public static void sortAlpha(linkedList a){
         int listSize = a.size();
         for (int gap = listSize/2; gap > 0; gap /= 2 ){
             for (int i = gap; i < listSize; i += 1){

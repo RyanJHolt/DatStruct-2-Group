@@ -7,9 +7,9 @@ public class Drink {
     public String originPlace;
     public String description;
     public String picture;
-    public double ABV;
-    public linkedList recipe;
-    public int totalQuantity = 0;
+    public linkedList recipe; //list of ingredients
+    public double ABV; //generated from ingredients
+    public int totalQuantity = 0; //generated from ingredients
 
     public Drink(String drinkName, String originPlace, String description, String picture, linkedList recipe) {
         this.name = drinkName;
