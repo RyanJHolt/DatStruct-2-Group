@@ -14,7 +14,7 @@ public class IngredientController {
     @FXML
     TextField ingABV;
 
-    linkedList<Ingredient> IngredientsList = new linkedList();
+    public static linkedList<Ingredient> IngredientsList = new linkedList();
 
     public void addIngredient(Ingredient ingredient){
         IngredientsList.addElementH(ingredient);

@@ -21,6 +21,15 @@ public class DrinkController {
     @FXML
     ListView<Ingredient> ingredientList;
 
+    @FXML
+    void initialize() {
+        ingredientList.getItems().clear();
+        if (IngredientController.IngredientsList.size() > 0)
+            for (linkedList.linkedNode i = IngredientController.IngredientsList.getHead(); i != null; i = i.next) {
+                ingredientList.getItems().add((Ingredient)i.getContents());
+            }
+    }
+
     public static linkedList<Drink> DrinksList = new linkedList();
 
     public void addDrink(Drink drink) {
