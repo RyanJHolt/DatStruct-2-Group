@@ -1,5 +1,6 @@
 package utils;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class shellSort {
 
     public static void sortABV(linkedList a){

@@ -12,6 +12,7 @@ import utils.hashMap;
 import utils.linkedList;
 import utils.shellSort;
 
+@SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
 
     @FXML
@@ -75,7 +76,7 @@ public class DrinkController {
     @FXML
     public void addDrinkToList() {
         linkedList<Ingredient> l = new linkedList<>();
-        l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), (int)ingredientList.getSelectionModel().getSelectedItem().quantity);
+        l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), ingredientList.getSelectionModel().getSelectedItem().quantity);
         Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
         addDrink(d);
     }

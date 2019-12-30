@@ -2,6 +2,7 @@ package Models;
 
 import utils.linkedList;
 
+@SuppressWarnings({"unchecked", "unused", "rawtypes"})
 public class Drink {
     public String name;
     public String originPlace;
@@ -64,15 +65,15 @@ public class Drink {
         return totalQuantity;
     }
 
-    public void setTotalQuantity(int Totalquantity) {
-        Totalquantity = Totalquantity;
+    public void setTotalQuantity(int totalQuantity) {
+        this.totalQuantity = totalQuantity;
     }
 
     public linkedList getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(linkedList recipe) {
+    public void setRecipe(linkedList<Ingredient> recipe) {
         this.recipe = recipe;
     }
 
@@ -85,6 +86,7 @@ public class Drink {
         } setTotalQuantity(Quantity);
     }
 
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private void calculateABV(){
         double ABV = 0;
         if (getTotalQuantity() == 0)
@@ -92,7 +94,7 @@ public class Drink {
         for (int i = 0; i < recipe.size(); i++){
             Ingredient temp = (Ingredient) recipe.getElement(i).getContents();
             int quantity = recipe.getElement(i).getQuantity();
-            ABV += temp.getABV()*(quantity/ getTotalQuantity());
+            ABV += temp.getABV() * (quantity / getTotalQuantity());
         }
         setABV(ABV);
     }

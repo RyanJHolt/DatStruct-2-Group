@@ -3,6 +3,7 @@ package utils;
 import Models.Drink;
 import Models.Ingredient;
 
+@SuppressWarnings("rawtypes")
 public class comparator {
 
     public static boolean moreThanABV(linkedList.linkedNode obj1,linkedList.linkedNode obj2){
@@ -24,10 +25,10 @@ public class comparator {
 
     public static boolean Alphabetical(linkedList.linkedNode obj1,linkedList.linkedNode obj2){
         int i = 0;
-        char firstObj = 0;
-        char secObj = 0;
-        String objName1 = "";
-        String objName2 = "";
+        char firstObj;
+        char secObj;
+        String objName1;
+        String objName2;
         if (obj1.getContents() == Drink.class && obj2.getContents() == Drink.class){
             Drink comp1 = (Drink) obj1.getContents();
             Drink comp2 = (Drink) obj2.getContents();

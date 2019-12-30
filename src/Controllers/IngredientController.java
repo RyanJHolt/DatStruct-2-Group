@@ -8,6 +8,7 @@ import utils.hashMap;
 import utils.linkedList;
 import utils.shellSort;
 
+@SuppressWarnings({"unchecked", "unused", "rawtypes"})
 public class IngredientController {
 
     @FXML

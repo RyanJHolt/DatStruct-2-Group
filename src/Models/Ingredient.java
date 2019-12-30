@@ -1,5 +1,6 @@
 package Models;
 
+@SuppressWarnings("unused")
 public class Ingredient {
 
     public String name;

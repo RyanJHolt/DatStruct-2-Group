@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import utils.IO;
-import utils.Main;
 
 public class MainWindowController {
 
