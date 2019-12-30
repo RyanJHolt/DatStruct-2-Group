@@ -7,6 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import utils.comparator;
 import utils.hashMap;
 import utils.linkedList;
 import utils.shellSort;
@@ -79,11 +80,25 @@ public class DrinkController {
         addDrink(d);
     }
 
-    public void sortDrinkAlphabet(){
-        shellSort.sortAlpha(DrinksList);
+    public void sortDrinkAlphabet(linkedList<Drink> listToSort){
+        shellSort.sortAlpha(listToSort);
     }
 
-    public void sortDrinkABV(){
-        shellSort.sortABV(DrinksList);
+    public void sortDrinkABV(linkedList<Drink> listToSort){
+        shellSort.sortABV(listToSort);
+    }
+
+    public linkedList<Drink> searchName(String searchText){
+        linkedList<Drink> results = new linkedList<>();
+        if (DrinksMap.get(searchText) != null){
+             results.addElementT(DrinksMap.get(searchText));
+        } else {
+            for (linkedList.linkedNode head = DrinksList.getHead(); head != null; head = head.next ){
+                if (comparator.Contains(head,searchText)){
+                    results.addElementT((Drink) head.getContents());
+                }
+            }
+        }
+        return results;
     }
 }

@@ -38,12 +38,24 @@ public class comparator {
             Ingredient comp2 = (Ingredient) obj2.getContents();
             objName1 = comp1.getName();
             objName2 = comp2.getName();
-        }
+        } else return false;
         do {
             firstObj = objName1.toUpperCase().charAt(i);
             secObj = objName2.toUpperCase().charAt(i);
         } while (firstObj == secObj);
         return firstObj <= secObj;
+    }
+
+    public static boolean Contains(linkedList.linkedNode obj1,String str1){
+        String str2 = "";
+        if (obj1.getContents().getClass() == Drink.class){
+            Drink comp1 = (Drink) obj1.getContents();
+            str2 = comp1.getName();
+        } else if (obj1.getContents().getClass() == Ingredient.class) {
+            Ingredient comp1 = (Ingredient) obj1.getContents();
+            str2 = comp1.getName();
+        }
+        return str2.toUpperCase().contains(str1.toUpperCase());
     }
 
 }
