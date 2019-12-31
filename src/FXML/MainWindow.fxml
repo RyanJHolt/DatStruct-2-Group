@@ -2,22 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="Controllers.MainWindowController">
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
     <children>
         <MenuBar prefHeight="25.0" prefWidth="600.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#LoadData" text="Load Data"/>
-                        <MenuItem mnemonicParsing="false" onAction="#SaveData" text="Save Data"/>
-                        <MenuItem mnemonicParsing="false" onAction="#ResetData" text="Reset Data"/>
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="View">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="View Database"/>
+                        <MenuItem mnemonicParsing="false" onAction="#LoadData" text="Load Data" />
+                        <MenuItem mnemonicParsing="false" onAction="#SaveData" text="Save Data" />
+                        <MenuItem mnemonicParsing="false" onAction="#ResetData" text="Reset Data" />
                     </items>
                 </Menu>
             </menus>
@@ -28,22 +23,17 @@
                     <content>
                         <GridPane alignment="CENTER" prefWidth="300.0">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow"
-                                        prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER"/>
-                                <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false"
-                                        prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER"
-                                        GridPane.rowIndex="1"/>
-                                <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false"
-                                        onAction="#RemoveDrinkWindow" prefHeight="25.0" prefWidth="600.0"
-                                        text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2"/>
+                                <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
+                                <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER" GridPane.rowIndex="1" />
+                                <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
                             </children>
                         </GridPane>
                     </content>
@@ -52,21 +42,17 @@
                     <content>
                         <GridPane prefWidth="300.0">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0"
-                                        prefWidth="600.0" text="Add Ingredient"/>
-                                <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0"
-                                        prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1"/>
-                                <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false"
-                                        onAction="#RemoveIngredientWindow" prefHeight="25.0" prefWidth="600.0"
-                                        text="Remove Ingredients" GridPane.rowIndex="2"/>
+                                <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
+                                <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1" />
+                                <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
                             </children>
                         </GridPane>
                     </content>
@@ -75,12 +61,21 @@
         </Accordion>
         <AnchorPane layoutY="248.0" prefHeight="173.0" prefWidth="600.0">
             <children>
-                <Button layoutX="195.0" layoutY="48.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="211.0"
-                        text="Search">
+                <Button layoutX="89.0" layoutY="48.0" mnemonicParsing="false" onAction="#SearchIngredientsWindow" prefHeight="39.0" prefWidth="211.0" text="Search Ingredients">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Button>
+            <Button layoutX="300.0" layoutY="48.0" mnemonicParsing="false" onAction="#DatabaseWindow" prefHeight="78.0" prefWidth="211.0" text="View All">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="89.0" layoutY="87.0" mnemonicParsing="false" onAction="#SearchDrinksWindow" prefHeight="39.0" prefWidth="211.0" text="Search Drinks">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

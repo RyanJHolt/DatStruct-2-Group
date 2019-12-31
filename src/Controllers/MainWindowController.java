@@ -70,6 +70,51 @@ public class MainWindowController {
     }
 
     @FXML
+    void SearchDrinksWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/SearchDrinks.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Search Drinks");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void SearchIngredientsWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/SearchIngredients.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("Search Ingredients");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void DatabaseWindow() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/Database.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("View All");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     void LoadData() {
         try {
             IO input = new IO();
