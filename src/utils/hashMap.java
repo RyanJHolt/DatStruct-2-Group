@@ -1,7 +1,7 @@
 package utils;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
-public class hashMap<k,c> {
+public class hashMap<k, c> {
     //used to store hash chains
     private hashNode[] hashArray;
     //Total capacity of hashList
@@ -24,7 +24,7 @@ public class hashMap<k,c> {
     }
 
     // This implements hash function to find index for a key
-    public int getHashIndex(k key){
+    public int getHashIndex(k key) {
         //magic also know as an inbuilt function of the Object class that determines object hashcode
         int hashCode = key.hashCode();
         //set index
@@ -32,15 +32,15 @@ public class hashMap<k,c> {
     }
 
     //remove a key
-    public void removeKey(k key){
+    public void removeKey(k key) {
         //use hash function to find the index of the given key
         int hashIndex = getHashIndex(key);
         //get head of the chain
-        hashNode<k,c> head = hashArray[hashIndex];
+        hashNode<k, c> head = hashArray[hashIndex];
 
         //search the chain for the key
-        hashNode<k,c> prev = null;
-        while (head != null){
+        hashNode<k, c> prev = null;
+        while (head != null) {
             //if key found stops looping
             if (head.key.equals(key))
                 break;
@@ -63,10 +63,10 @@ public class hashMap<k,c> {
         return (c) head.getContent();*/
     }
 
-    public c get(k key){
+    public c get(k key) {
         int hashIndex = getHashIndex(key);
         //get head of the chain for given key
-        hashNode<k,c> head = hashArray[hashIndex];
+        hashNode<k, c> head = hashArray[hashIndex];
 
         //search the chain for the key
         while (head != null) {
@@ -80,7 +80,7 @@ public class hashMap<k,c> {
         return null;
     }
 
-    public void add(k key, c content){
+    public void add(k key, c content) {
         int hashIndex = getHashIndex(key);
         //get head of the chain for given key
         hashNode head = hashArray[hashIndex];
@@ -110,7 +110,7 @@ public class hashMap<k,c> {
                 hashArray[i] = (null);
             }
             for (hashNode<k, c> tempNode : temp) {
-                while (tempNode != null){
+                while (tempNode != null) {
                     add(tempNode.getKey(), tempNode.getContent());
                     tempNode = tempNode.next;
                 }
@@ -119,23 +119,21 @@ public class hashMap<k,c> {
     }
 
 
-
-
-    public static class hashNode<k,c>{
+    public static class hashNode<k, c> {
         k key;
         c content;
         hashNode next;
 
-        public hashNode(k key, c content){
+        public hashNode(k key, c content) {
             this.key = key;
             this.content = content;
         }
 
-        public k getKey(){
+        public k getKey() {
             return key;
         }
 
-        public c getContent(){
+        public c getContent() {
             return content;
         }
     }

@@ -2,76 +2,86 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
-   <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#LoadData" text="Load Data" />
-                  <MenuItem mnemonicParsing="false" onAction="#SaveData" text="Save Data" />
-                  <MenuItem mnemonicParsing="false" onAction="#ResetData" text="Reset Data" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="View">
-            <items>
-              <MenuItem mnemonicParsing="false" text="View Database" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Accordion layoutY="25.0" prefHeight="223.0" prefWidth="600.0">
-        <panes>
-          <TitledPane animated="false" prefHeight="185.0" prefWidth="600.0" text="Drinks">
-               <content>
-                  <GridPane alignment="CENTER" prefWidth="300.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER" />
-                        <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER" GridPane.rowIndex="1" />
-                        <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveDrinkWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
-            <TitledPane animated="false" layoutX="10.0" layoutY="35.0" text="Ingredients">
-               <content>
-                  <GridPane prefWidth="300.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Add Ingredient" />
-                        <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1" />
-                        <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#RemoveIngredientWindow" prefHeight="25.0" prefWidth="600.0" text="Remove Ingredients" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
-        </panes>
-      </Accordion>
-      <AnchorPane layoutY="248.0" prefHeight="173.0" prefWidth="600.0">
-         <children>
-            <Button layoutX="195.0" layoutY="48.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="211.0" text="Search">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-   </children>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="Controllers.MainWindowController">
+    <children>
+        <MenuBar prefHeight="25.0" prefWidth="600.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#LoadData" text="Load Data"/>
+                        <MenuItem mnemonicParsing="false" onAction="#SaveData" text="Save Data"/>
+                        <MenuItem mnemonicParsing="false" onAction="#ResetData" text="Reset Data"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="View Database"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Accordion layoutY="25.0" prefHeight="223.0" prefWidth="600.0">
+            <panes>
+                <TitledPane animated="false" prefHeight="185.0" prefWidth="600.0" text="Drinks">
+                    <content>
+                        <GridPane alignment="CENTER" prefWidth="300.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="AddDrinkWindow" mnemonicParsing="false" onAction="#AddDrinkWindow"
+                                        prefHeight="25.0" prefWidth="600.0" text="Add Drink" textAlignment="CENTER"/>
+                                <Button fx:id="EditDrinkWindow" layoutX="20.0" layoutY="59.0" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="600.0" text="Edit Drinks" textAlignment="CENTER"
+                                        GridPane.rowIndex="1"/>
+                                <Button fx:id="RemoveDrinkWindow" layoutX="20.0" layoutY="160.0" mnemonicParsing="false"
+                                        onAction="#RemoveDrinkWindow" prefHeight="25.0" prefWidth="600.0"
+                                        text="Remove Drinks" textAlignment="CENTER" GridPane.rowIndex="2"/>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+                <TitledPane animated="false" layoutX="10.0" layoutY="35.0" text="Ingredients">
+                    <content>
+                        <GridPane prefWidth="300.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#AddIngredientWindow" prefHeight="25.0"
+                                        prefWidth="600.0" text="Add Ingredient"/>
+                                <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0"
+                                        prefWidth="600.0" text="Edit Ingredients" GridPane.rowIndex="1"/>
+                                <Button layoutX="20.0" layoutY="160.0" mnemonicParsing="false"
+                                        onAction="#RemoveIngredientWindow" prefHeight="25.0" prefWidth="600.0"
+                                        text="Remove Ingredients" GridPane.rowIndex="2"/>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+            </panes>
+        </Accordion>
+        <AnchorPane layoutY="248.0" prefHeight="173.0" prefWidth="600.0">
+            <children>
+                <Button layoutX="195.0" layoutY="48.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="211.0"
+                        text="Search">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

@@ -1,11 +1,14 @@
 package utils;
 
-        import java.io.*;
+import Controllers.DrinkController;
+import Models.Drink;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
-        import Controllers.DrinkController;
-        import Models.Drink;
-        import com.thoughtworks.xstream.XStream;
-        import com.thoughtworks.xstream.io.xml.DomDriver;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class IO {
 

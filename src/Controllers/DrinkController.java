@@ -15,6 +15,8 @@ import utils.shellSort;
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
 
+    public static linkedList<Drink> DrinksList = new linkedList();
+    public static hashMap<String, Drink> DrinksMap = new hashMap<>();
     @FXML
     TextField name;
     @FXML
@@ -36,18 +38,16 @@ public class DrinkController {
             }
     }
 
-    public static linkedList<Drink> DrinksList = new linkedList();
-    public static hashMap<String,Drink> DrinksMap = new hashMap<>();
-
     public void addDrink(Drink drink) {
         DrinksList.addElementH(drink);
-        DrinksMap.add(drink.name,drink);
+        DrinksMap.add(drink.name, drink);
     }
 
     public void updateDrink(int n, Drink drink) {
-        if (!DrinksList.getDrink(n).getName().equals(drink.name)){
+        if (!DrinksList.getDrink(n).getName().equals(drink.name)) {
             DrinksMap.removeKey(drink.name);
-        } DrinksMap.add(drink.name,drink);
+        }
+        DrinksMap.add(drink.name, drink);
         DrinksList.updateElement(n, drink);
     }
 
@@ -81,21 +81,21 @@ public class DrinkController {
         addDrink(d);
     }
 
-    public void sortDrinkAlphabet(linkedList<Drink> listToSort){
+    public void sortDrinkAlphabet(linkedList<Drink> listToSort) {
         shellSort.sortAlpha(listToSort);
     }
 
-    public void sortDrinkABV(linkedList<Drink> listToSort){
+    public void sortDrinkABV(linkedList<Drink> listToSort) {
         shellSort.sortABV(listToSort);
     }
 
-    public linkedList<Drink> searchName(String searchText){
+    public linkedList<Drink> searchName(String searchText) {
         linkedList<Drink> results = new linkedList<>();
-        if (DrinksMap.get(searchText) != null){
-             results.addElementT(DrinksMap.get(searchText));
+        if (DrinksMap.get(searchText) != null) {
+            results.addElementT(DrinksMap.get(searchText));
         } else {
-            for (linkedList.linkedNode head = DrinksList.getHead(); head != null; head = head.next ){
-                if (comparator.Contains(head,searchText)){
+            for (linkedList.linkedNode head = DrinksList.getHead(); head != null; head = head.next) {
+                if (comparator.Contains(head, searchText)) {
                     results.addElementT((Drink) head.getContents());
                 }
             }

@@ -10,6 +10,10 @@ public class linkedList<F> {
     public void addElementH(F e) {
         //Add element to head of list
         linkedNode<F> node = new linkedNode<>(e);
+        if (size() == 0){
+            head = node;
+            return;
+        }
         node.next = head;
         head = node;
     }
@@ -17,6 +21,10 @@ public class linkedList<F> {
     public void addElementH(Ingredient e, int q) {
         //Add element to head of list
         linkedNode<F> node = new linkedNode<>(e, q);
+        if (size() == 0){
+            head = node;
+            return;
+        }
         node.next = head;
         head = node;
     }
@@ -138,18 +146,20 @@ public class linkedList<F> {
 
     public int size() {
         int size = 0;
-        linkedNode temp = head;
-        while (temp != null) {
-            size++;
-            temp = temp.next;
+        if (head != null) {
+            linkedNode temp = head;
+            while (temp != null) {
+                size++;
+                temp = temp.next;
+            }
         }
         return size;
     }
 
     public static class linkedNode<F> {
         public linkedNode next = null;
-        private F contents; //ADT reference!
         public int quantity = 0;
+        private F contents; //ADT reference!
 
         public linkedNode(F contents) {
             this.contents = contents;

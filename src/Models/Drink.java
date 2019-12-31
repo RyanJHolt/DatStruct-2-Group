@@ -77,23 +77,23 @@ public class Drink {
         this.recipe = recipe;
     }
 
-    private void calculateTotalQuantity(){
+    public void calculateTotalQuantity() {
         int Quantity = 0;
         if (getTotalQuantity() == 0) {
             for (int i = 0; i < recipe.size(); i++) {
                 Quantity += recipe.getElement(i).getQuantity();
             }
-        } setTotalQuantity(Quantity);
+        }
+        setTotalQuantity(Quantity);
     }
 
-    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
-    private void calculateABV(){
+    public void calculateABV() {
         double ABV = 0;
         if (getTotalQuantity() == 0)
             calculateTotalQuantity();
-        for (int i = 0; i < recipe.size(); i++){
+        for (int i = 0; i < recipe.size(); i++) {
             Ingredient temp = (Ingredient) recipe.getElement(i).getContents();
-            int quantity = recipe.getElement(i).getQuantity();
+            double quantity = recipe.getElement(i).getQuantity();
             ABV += temp.getABV() * (quantity / getTotalQuantity());
         }
         setABV(ABV);
