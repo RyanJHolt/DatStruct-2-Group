@@ -1,5 +1,6 @@
 package Models;
 
+import utils.hashMap;
 import utils.linkedList;
 
 @SuppressWarnings({"unchecked", "unused", "rawtypes"})
@@ -73,7 +74,7 @@ public class Drink {
         return recipe;
     }
 
-    public void setRecipe(linkedList<Ingredient> recipe) {
+    public void setRecipe(linkedList recipe) {
         this.recipe = recipe;
     }
 

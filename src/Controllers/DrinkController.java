@@ -15,7 +15,7 @@ import utils.shellSort;
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
 
-    public static linkedList<Drink> DrinksList = new linkedList();
+    //public static linkedList<Drink> DrinksList = new linkedList();
     public static hashMap<String, Drink> DrinksMap = new hashMap<>();
     @FXML
     TextField name;
@@ -39,31 +39,22 @@ public class DrinkController {
     }
 
     public void addDrink(Drink drink) {
-        DrinksList.addElementH(drink);
         DrinksMap.add(drink.name, drink);
     }
 
-    public void updateDrink(int n, Drink drink) {
+    /*public void updateDrink(int n, Drink drink) {
         if (!DrinksList.getDrink(n).getName().equals(drink.name)) {
             DrinksMap.removeKey(drink.name);
         }
         DrinksMap.add(drink.name, drink);
         DrinksList.updateElement(n, drink);
+    }*/
+
+    public void deleteDrink(String key) {
+        DrinksMap.removeKey(key);
     }
 
-    public void deleteDrink(int n) {
-        String temp = DrinksList.getDrink(n).getName();
-        DrinksList.deleteElement(n);
-        DrinksMap.removeKey(temp);
-    }
 
-    public linkedList<Drink> getDrinksList() {
-        return DrinksList;
-    }
-
-    public void setDrinksList(linkedList<Drink> drinksList) {
-        DrinksList = drinksList;
-    }
 
     public hashMap<String, Drink> getDrinksMap() {
         return DrinksMap;

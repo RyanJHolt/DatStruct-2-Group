@@ -60,7 +60,6 @@ public class linkedList<F> {
         if (n == 0) {
             head.setContents(e);
         } else {
-            while (temp != null) {
                 int i = 0;
                 while (i < (n - 1) & temp != null) { //Get to the nth element
                     temp = temp.next;
@@ -69,7 +68,6 @@ public class linkedList<F> {
                 if (temp != null && temp.next != null) { //update nth element
                     temp.next.setContents(e);
                 }
-            }
         }
     }
 

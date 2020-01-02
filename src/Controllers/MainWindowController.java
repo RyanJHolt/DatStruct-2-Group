@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import utils.IO;
 
+@SuppressWarnings("ThrowablePrintedToSystemOut")
 public class MainWindowController {
 
     @FXML
@@ -138,7 +139,7 @@ public class MainWindowController {
 
     @FXML
     void ResetData() {
-        DrinkController.DrinksList.clear();
+        DrinkController.DrinksMap.clear();
         System.out.println("All data cleared! Load to restore, or Save to clear permanently.");
     }
 }

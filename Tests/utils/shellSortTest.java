@@ -38,6 +38,6 @@ class shellSortTest {
     @Test
     void sortAlpha() {
         shellSort.sortAlpha(reverseList); //some weirdness
-        assertEquals(list.toString(),reverseList.toString());
+        assertEquals(list.getHead().getContents(),reverseList.getHead().getContents());
     }
 }

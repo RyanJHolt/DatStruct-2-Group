@@ -109,6 +109,11 @@ public class hashMap<k, c> {
         } return results; //returns the list of nodes
     }
 
+    public void clear(){
+        for (hashNode temp: hashArray){
+            temp = null;
+        }
+    }
 
     public void add(String key, c content) { //add a node to hashMap
         int hashIndex = getHashIndex(key);
