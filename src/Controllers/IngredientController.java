@@ -3,10 +3,7 @@ package Controllers;
 import Models.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import utils.comparator;
-import utils.hashMap;
-import utils.linkedList;
-import utils.shellSort;
+import utils.*;
 
 @SuppressWarnings({"unchecked", "unused", "rawtypes"})
 public class IngredientController {
@@ -57,8 +54,10 @@ public class IngredientController {
 
     @FXML
     public void addIngredientToIngredientList() {
-        Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
-        addIngredient(ing);
+        if (Sanitization.StringIsDouble(ingABV.getText())) {
+            Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
+            addIngredient(ing);
+        }
     }
 
     public void sortIngredientAlphabet() {
