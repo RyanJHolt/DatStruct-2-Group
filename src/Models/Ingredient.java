@@ -64,5 +64,13 @@ public class Ingredient {
     private void editDrink(int index,Drink drink){
         Drinks.updateElement(index,drink);
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "name='" + name + '\'' +
+                ", ABV=" + ABV +
+                '}';
+    }
 }
 
