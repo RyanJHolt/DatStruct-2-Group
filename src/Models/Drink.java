@@ -90,13 +90,18 @@ public class Drink {
     public void calculateABV() {
         double ABV = 0;
         if (getTotalQuantity() == 0)
-            calculateTotalQuantity();
+            calculateTotalQuantity(); //gets total quantity
         for (int i = 0; i < recipe.size(); i++) {
-            Ingredient temp = (Ingredient) recipe.getElement(i).getContents();
-            double quantity = recipe.getElement(i).getQuantity();
-            ABV += temp.getABV() * (quantity / getTotalQuantity());
+            Ingredient temp = (Ingredient) recipe.getElement(i).getContents(); //loops through recipe array and gets ingredients
+            double quantity = recipe.getElement(i).getQuantity(); //gets quantity of that ingredient
+            ABV += temp.getABV() * (quantity / getTotalQuantity()); //multiplies how much of the drink the ingredient makes up to calculate how much abv% the ingredient increases the abv of the drink by
         }
         setABV(ABV);
+    }
+
+    public boolean contains(String compare){
+        compare = compare.toUpperCase();
+        return getName().toUpperCase().contains(compare);
     }
 
     public void addIngredient(Ingredient ingredient) {

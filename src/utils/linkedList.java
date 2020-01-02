@@ -111,7 +111,7 @@ public class linkedList<F> {
     }
 
     //clears the list
-    public void Clear() {
+    public void clear() {
         head = null;
     }
 
@@ -168,6 +168,10 @@ public class linkedList<F> {
         public linkedNode(Ingredient contents, int quantity) {
             this.contents = (F) contents;
             this.quantity = quantity;
+        }
+
+        public boolean compareNodes(linkedNode compare){
+            return getContents()==compare.getContents();
         }
 
         public F getContents() {

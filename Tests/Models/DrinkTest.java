@@ -13,8 +13,8 @@ class DrinkTest {
 
     @BeforeEach
     void setUp() {
-        ing.addElementH(new Ingredient("name","description",22),100);
-        ing.addElementH(new Ingredient("name","description",66),300);
+        ing.addElementH(new Ingredient("name","description",66),100);
+        ing.addElementH(new Ingredient("name","description",22),300);
         drink = new Drink("Name","place","description","url",ing);
     }
 
@@ -34,7 +34,7 @@ class DrinkTest {
     @Test
     void getABV() {
         assertEquals(drink.getABV(), (drink.ABV));
-        assertEquals(drink.getABV(), (22));
+        assertEquals(33, (drink.getABV()));
         assertNotEquals(drink.getABV(), (0), 0.0);
     }
 
@@ -58,5 +58,11 @@ class DrinkTest {
         linkedList.linkedNode test = ing.getElement(1);
         ing.deleteElement(0);
         assertEquals(ing.getHead().getQuantity(), test.getQuantity());
+    }
+
+    @Test
+    void contains() {
+        assertTrue(drink.contains("name"));
+        assertFalse(drink.contains("test"));
     }
 }

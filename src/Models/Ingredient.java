@@ -1,16 +1,24 @@
 package Models;
 
-@SuppressWarnings("unused")
+import utils.linkedList;
+
+@SuppressWarnings({"unused", "rawtypes", "unchecked"})
 public class Ingredient {
 
     public String name;
     public String description;
     public double ABV;
+    public linkedList Drinks;
 
     public Ingredient(String name, String description, double ABV) {
         this.name = name;
         this.description = description;
         this.ABV = ABV;
+    }
+
+    public boolean contains(String compare) {
+        compare = compare.toUpperCase();
+        return getName().toUpperCase().contains(compare);
     }
 
     public String getName() {
@@ -36,4 +44,25 @@ public class Ingredient {
     public void setABV(double ABV) {
         this.ABV = ABV;
     }
+
+    public linkedList getDrinks() {
+        return Drinks;
+    }
+
+    public void setDrinks(linkedList drinks) {
+        Drinks = drinks;
+    }
+
+    private void addDrink(Drink drink){
+        Drinks.addElementT(drink);
+    }
+
+    private void removeDrink(int index){
+        Drinks.deleteElement(index);
+    }
+
+    private void editDrink(int index,Drink drink){
+        Drinks.updateElement(index,drink);
+    }
 }
+

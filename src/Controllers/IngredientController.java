@@ -75,7 +75,7 @@ public class IngredientController {
             results.addElementT(IngredientsMap.get(searchText));
         } else {
             for (linkedList.linkedNode head = IngredientsList.getHead(); head != null; head = head.next) {
-                if (comparator.Contains(head, searchText)) {
+                if (comparator.contains(head, searchText)) {
                     results.addElementT((Ingredient) head.getContents());
                 }
             }

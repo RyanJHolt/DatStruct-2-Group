@@ -10,7 +10,7 @@ public class shellSort {
                 int j;
                 linkedList.linkedNode temp = a.getElement(i);
                 for (j = i; j >= gap && comparator.moreThanABV(a.getElement(j - gap), temp); j -= gap) {
-                    a.updateElement(j, a.getElement(j - gap));
+                    a.updateElement(j, a.getElement(j - gap)); //wont leave this loop
                 }
                 a.updateElement(j, temp.getContents());
             }
@@ -24,7 +24,7 @@ public class shellSort {
                 //int temp = a.getElement(i).getQuantity();
                 int j;
                 linkedList.linkedNode temp = a.getElement(i);
-                for (j = i; j >= gap && comparator.Alphabetical(a.getElement(j - gap), temp); j -= gap) {
+                for (j = i; j >= gap && comparator.alphabetical(a.getElement(j - gap), temp); j -= gap) {
                     a.updateElement(j, a.getElement(j - gap));
                 }
                 a.updateElement(j, temp.getContents());

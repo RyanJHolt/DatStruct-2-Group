@@ -138,7 +138,7 @@ public class MainWindowController {
 
     @FXML
     void ResetData() {
-        DrinkController.DrinksList.Clear();
+        DrinkController.DrinksList.clear();
         System.out.println("All data cleared! Load to restore, or Save to clear permanently.");
     }
 }

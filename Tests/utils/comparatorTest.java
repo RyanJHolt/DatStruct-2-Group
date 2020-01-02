@@ -47,17 +47,25 @@ class comparatorTest {
         assertTrue(comparator.moreThanABV(DrinkList1.getHead(),DrinkList2.getHead()));
         assertFalse(comparator.moreThanABV(DrinkList2.getHead(),DrinkList1.getHead()));
         assertFalse(comparator.moreThanABV(IngredientList2.getHead(),IngredientList1.getHead()));
-        assertTrue(comparator.moreThanABV(IngredientList1.getHead(),IngredientList2.getHead()));
+        assertTrue(comparator.moreThanABV(IngredientList1.getHead(),DrinkList2.getHead()));
         assertTrue(comparator.moreThanABV(IngredientList2.getHead(),IngredientList2.getHead()));
         assertTrue(comparator.moreThanABV(DrinkList1.getHead(),DrinkList1.getHead()));
-
     }
 
     @Test
     void alphabetical() {
+        assertTrue(comparator.alphabetical(DrinkList1.getHead(),DrinkList2.getHead()));
+        assertFalse(comparator.alphabetical(DrinkList2.getHead(),DrinkList1.getHead()));
+        assertFalse(comparator.alphabetical(IngredientList1.getHead(),IngredientList2.getHead()));
+        assertTrue(comparator.alphabetical(IngredientList2.getHead(),DrinkList1.getHead()));
+        assertTrue(comparator.alphabetical(IngredientList2.getHead(),IngredientList2.getHead()));
+        assertTrue(comparator.alphabetical(DrinkList1.getHead(),DrinkList1.getHead()));
     }
 
     @Test
     void contains() {
+        linkedList.linkedNode test = new linkedList.linkedNode(dri1);
+        assertTrue(comparator.contains(test,"bb"));
+        assertFalse(comparator.contains(test,"bwadas"));
     }
 }
