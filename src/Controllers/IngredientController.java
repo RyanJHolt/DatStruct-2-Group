@@ -10,6 +10,7 @@ public class IngredientController {
 
     public static linkedList<Ingredient> IngredientsList = new linkedList();
     public static hashMap<String, Ingredient> IngredientsMap = new hashMap<>();
+
     @FXML
     TextField ingName;
     @FXML
@@ -57,6 +58,7 @@ public class IngredientController {
         if (Sanitization.StringIsDouble(ingABV.getText())) {
             Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
             addIngredient(ing);
+            ingName.getScene().getWindow().hide();
         }
     }
 
