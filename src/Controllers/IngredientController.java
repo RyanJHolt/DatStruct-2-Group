@@ -8,7 +8,7 @@ import utils.*;
 @SuppressWarnings({"unchecked", "unused", "rawtypes"})
 public class IngredientController {
 
-    public static linkedList<Ingredient> IngredientsList = new linkedList();
+    //public static linkedList<Ingredient> IngredientsList = new linkedList();
     public static hashMap<String, Ingredient> IngredientsMap = new hashMap<>();
     @FXML
     TextField ingName;
@@ -26,30 +26,20 @@ public class IngredientController {
     }
 
     public void addIngredient(Ingredient ingredient) {
-        IngredientsList.addElementH(ingredient);
         IngredientsMap.add(ingredient.name, ingredient);
     }
 
-    public void updateIngredient(int n, Ingredient ingredient) {
-        if (!IngredientsList.getIngredient(n).getName().equals(ingredient.name)) {
-            IngredientsMap.removeKey(ingredient.name);
-        }
-        IngredientsMap.add(ingredient.name, ingredient);
-        IngredientsList.updateElement(n, ingredient);
+
+    public void deleteIngredient(String name) {
+        IngredientsMap.removeKey(name);
     }
 
-    public void deleteIngredient(int n) {
-        String temp = IngredientsList.getIngredient(n).getName();
-        IngredientsList.deleteElement(n);
-        IngredientsMap.removeKey(temp);
+    public static hashMap<String, Ingredient> getIngredientsMap() {
+        return IngredientsMap;
     }
 
-    public linkedList<Ingredient> getIngredientsList() {
-        return IngredientsList;
-    }
-
-    public void setIngredientsList(linkedList<Ingredient> ingredientsList) {
-        IngredientsList = ingredientsList;
+    public static void setIngredientsMap(hashMap<String, Ingredient> ingredientsMap) {
+        IngredientsMap = ingredientsMap;
     }
 
     @FXML
@@ -60,25 +50,22 @@ public class IngredientController {
         }
     }
 
-    public void sortIngredientAlphabet() {
+    /*public void sortIngredientAlphabet() {
         shellSort.sortAlpha(IngredientsList);
     }
 
     public void sortIngredientABV() {
         shellSort.sortABV(IngredientsList);
-    }
+    }*/
 
     public linkedList<Ingredient> searchName(String searchText) {
         linkedList<Ingredient> results = new linkedList<>();
         if (IngredientsMap.get(searchText) != null) {
             results.addElementT(IngredientsMap.get(searchText));
+            return results;
         } else {
-            for (linkedList.linkedNode head = IngredientsList.getHead(); head != null; head = head.next) {
-                if (comparator.contains(head, searchText)) {
-                    results.addElementT((Ingredient) head.getContents());
-                }
+            return IngredientsMap.keyContains(searchText);
             }
         }
-        return results;
     }
 }
