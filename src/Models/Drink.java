@@ -116,4 +116,12 @@ public class Drink {
     public void deleteIngredient(int n) {
         getRecipe().deleteElement(n);
     }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "name='" + name + '\'' +
+                ", ABV=" + ABV +
+                '}';
+    }
 }
