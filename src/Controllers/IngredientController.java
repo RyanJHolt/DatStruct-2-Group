@@ -46,7 +46,7 @@ public class IngredientController {
     @FXML
     public void addIngredientToIngredientList() {
         if (Sanitization.StringIsDouble(ingABV.getText())) {
-            Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
+            Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Double.parseDouble(ingABV.getText()));
             addIngredient(ing);
             ingName.getScene().getWindow().hide();
         }
