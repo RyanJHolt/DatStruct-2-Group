@@ -83,13 +83,9 @@ public class DrinkController {
         linkedList<Drink> results = new linkedList<>();
         if (DrinksMap.get(searchText) != null) {
             results.addElementT(DrinksMap.get(searchText));
+            return results;
         } else {
-            for (linkedList.linkedNode head = DrinksList.getHead(); head != null; head = head.next) {
-                if (comparator.contains(head, searchText)) {
-                    results.addElementT((Drink) head.getContents());
-                }
-            }
+            return DrinksMap.keyContains(searchText);
         }
-        return results;
     }
 }
