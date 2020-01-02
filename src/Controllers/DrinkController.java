@@ -7,7 +7,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import utils.*;
+import utils.Sanitization;
+import utils.hashMap;
+import utils.linkedList;
+import utils.shellSort;
 
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
@@ -23,16 +26,21 @@ public class DrinkController {
     @FXML
     TextArea description;
     @FXML
-    ListView<linkedList.linkedNode> ingredientList;
+    ListView<hashMap.hashNode> ingredientList;
 
     @FXML
     void initialize() {
         ingredientList.getItems().clear();
         ingredientList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        if (IngredientController.IngredientsList.size() > 0)
-            for (linkedList.linkedNode i = IngredientController.IngredientsList.getHead(); i != null; i = i.next) {
-                ingredientList.getItems().add(i);
+        if (!IngredientController.getIngredientMap().isEmpty()) {
+            for (hashMap.hashNode tempNode : DrinksMap.hashArray) {
+                while (tempNode != null) {
+                    ingredientList.getItems().add(tempNode);
+                    tempNode = tempNode.getNext();
+                }
             }
+        }
+
     }
 
     public void addDrink(Drink drink) {
@@ -65,7 +73,7 @@ public class DrinkController {
     public void addDrinkToList() {
         if (Sanitization.StringIsImageURL(imageURL.getText())) {
             linkedList<Ingredient> l = new linkedList<>();
-            l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), ingredientList.getSelectionModel().getSelectedItem().quantity);
+            l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContent(), 0);
             Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
             addDrink(d);
         }

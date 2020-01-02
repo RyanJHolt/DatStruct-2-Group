@@ -5,7 +5,7 @@ import java.util.Arrays;
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class hashMap<k, c> {
     //used to store hash chains
-    private hashNode[] hashArray;
+    public hashNode[] hashArray;
     //Total capacity of hashList
     private int capacity;
     //Amount stored in hashList
@@ -180,6 +180,13 @@ public class hashMap<k, c> {
             return content;
         }
 
+        public hashNode getNext() {
+            return next;
+        }
+
+        public void setNext(hashNode next) {
+            this.next = next;
+        }
     }
 }
 
