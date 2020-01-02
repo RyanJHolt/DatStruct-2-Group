@@ -59,8 +59,6 @@ public class DrinkController {
         DrinksMap.removeKey(key);
     }
 
-
-
     public hashMap<String, Drink> getDrinksMap() {
         return DrinksMap;
     }
@@ -76,6 +74,7 @@ public class DrinkController {
             l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContent(), 0);
             Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
             addDrink(d);
+            imageURL.getScene().getWindow().hide();
         }
     }
 
