@@ -7,10 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import utils.comparator;
-import utils.hashMap;
-import utils.linkedList;
-import utils.shellSort;
+import utils.*;
 
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
@@ -66,10 +63,12 @@ public class DrinkController {
 
     @FXML
     public void addDrinkToList() {
-        linkedList<Ingredient> l = new linkedList<>();
-        l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), ingredientList.getSelectionModel().getSelectedItem().quantity);
-        Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
-        addDrink(d);
+        if (Sanitization.StringIsImageURL(imageURL.getText())) {
+            linkedList<Ingredient> l = new linkedList<>();
+            l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContents(), ingredientList.getSelectionModel().getSelectedItem().quantity);
+            Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
+            addDrink(d);
+        }
     }
 
     public void sortDrinkAlphabet(linkedList<Drink> listToSort) {
