@@ -5,37 +5,7 @@
       <null/>
       <null/>
       <null/>
-      <utils.hashMap_-hashNode>
-        <key>ting</key>
-        <content class="Models.Drink">
-          <name>ting</name>
-          <originPlace>ting</originPlace>
-          <description>lad</description>
-          <picture>hehe</picture>
-          <recipe>
-            <head>
-              <quantity>0</quantity>
-              <contents class="Models.Ingredient">
-                <name>ting</name>
-                <description>ting</description>
-                <ABV>3.0</ABV>
-                <Drinks>
-                  <head>
-                    <next>
-                      <quantity>0</quantity>
-                      <contents class="Models.Drink" reference="../../../../../../.."/>
-                    </next>
-                    <quantity>0</quantity>
-                    <contents class="Models.Ingredient" reference="../../.."/>
-                  </head>
-                </Drinks>
-              </contents>
-            </head>
-          </recipe>
-          <ABV>NaN</ABV>
-          <totalQuantity>0</totalQuantity>
-        </content>
-      </utils.hashMap_-hashNode>
+      <null/>
       <null/>
       <null/>
       <null/>
@@ -43,52 +13,6 @@
       <null/>
     </hashArray>
     <capacity>10</capacity>
-    <size>1</size>
-  </utils.hashMap>
-  <utils.hashMap>
-    <hashArray>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <utils.hashMap_-hashNode>
-        <key>ting</key>
-        <content class="Models.Ingredient">
-          <name>ting</name>
-          <description>ting</description>
-          <ABV>3.0</ABV>
-          <Drinks>
-            <head>
-              <next>
-                <quantity>0</quantity>
-                <contents class="Models.Drink">
-                  <name>ting</name>
-                  <originPlace>ting</originPlace>
-                  <description>lad</description>
-                  <picture>hehe</picture>
-                  <recipe>
-                    <head>
-                      <quantity>0</quantity>
-                      <contents class="Models.Ingredient" reference="../../../../../../.."/>
-                    </head>
-                  </recipe>
-                  <ABV>NaN</ABV>
-                  <totalQuantity>0</totalQuantity>
-                </contents>
-              </next>
-              <quantity>0</quantity>
-              <contents class="Models.Ingredient" reference="../../.."/>
-            </head>
-          </Drinks>
-        </content>
-      </utils.hashMap_-hashNode>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-    </hashArray>
-    <capacity>10</capacity>
-    <size>1</size>
+    <size>0</size>
   </utils.hashMap>
 </object-stream>
