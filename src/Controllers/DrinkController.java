@@ -26,21 +26,20 @@ public class DrinkController {
     @FXML
     TextArea description;
     @FXML
-    ListView<hashMap.hashNode> ingredientList;
+    ListView ingredientList;
 
     @FXML
     void initialize() {
         ingredientList.getItems().clear();
         ingredientList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        if (!IngredientController.getIngredientMap().isEmpty()) {
-            for (hashMap.hashNode tempNode : DrinksMap.hashArray) {
+        if (!IngredientController.getIngredientsMap().isEmpty()) {
+            for (hashMap.hashNode tempNode : IngredientController.getIngredientsMap().hashArray) {
                 while (tempNode != null) {
                     ingredientList.getItems().add(tempNode);
                     tempNode = tempNode.getNext();
                 }
             }
         }
-
     }
 
     public void addDrink(Drink drink) {
@@ -70,10 +69,13 @@ public class DrinkController {
     @FXML
     public void addDrinkToList() {
         if (Sanitization.StringIsImageURL(imageURL.getText())) {
-            linkedList<Ingredient> l = new linkedList<>();
-            l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContent(), 0);
-            Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
+            linkedList<Ingredient> ingredients = new linkedList<>();
+            hashMap.hashNode tempNode = (hashMap.hashNode) ingredientList.getSelectionModel().getSelectedItem();
+            Ingredient temp = (Ingredient) tempNode.getContent();
+            ingredients.addElementH(temp, 0);
+            Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), ingredients);
             addDrink(d);
+            IngredientController.getIngredientsMap().get(temp.getName()).getDrinks().addElementT(d);
             imageURL.getScene().getWindow().hide();
         }
     }

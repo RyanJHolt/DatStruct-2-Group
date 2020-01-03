@@ -7,6 +7,7 @@ import utils.linkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("rawtypes")
 class DrinkTest {
     linkedList ing = new linkedList();
     Drink drink;

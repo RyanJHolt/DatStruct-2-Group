@@ -3,9 +3,11 @@ package Controllers;
 import Models.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import utils.*;
+import utils.Sanitization;
+import utils.hashMap;
+import utils.linkedList;
 
-@SuppressWarnings({"unchecked", "unused", "rawtypes"})
+@SuppressWarnings({"unchecked", "unused"})
 public class IngredientController {
 
     //public static linkedList<Ingredient> IngredientsList = new linkedList();
@@ -18,18 +20,9 @@ public class IngredientController {
     @FXML
     TextField ingABV;
 
-    public static hashMap<String, Ingredient> getIngredientMap() {
-        return IngredientsMap;
-    }
-
-    public static void setIngredientMap(hashMap<String, Ingredient> ingredientMap) {
-        IngredientsMap = ingredientMap;
-    }
-
     public void addIngredient(Ingredient ingredient) {
         IngredientsMap.add(ingredient.name, ingredient);
     }
-
 
     public void deleteIngredient(String name) {
         IngredientsMap.removeKey(name);
