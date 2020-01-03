@@ -1,18 +1,24 @@
 package Controllers;
 
 import Models.Ingredient;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import utils.Sanitization;
 import utils.hashMap;
 import utils.linkedList;
+import utils.shellSort;
 
 @SuppressWarnings({"unchecked", "unused"})
 public class IngredientController {
 
-    //public static linkedList<Ingredient> IngredientsList = new linkedList();
+    public linkedList results = new linkedList();
     public static hashMap<String, Ingredient> IngredientsMap = new hashMap<>();
-
+    @FXML
+    ListView IngredientResults;
+    @FXML
+    TextField searchBox;
     @FXML
     TextField ingName;
     @FXML
@@ -45,14 +51,6 @@ public class IngredientController {
         }
     }
 
-    /*public void sortIngredientAlphabet() {
-        shellSort.sortAlpha(IngredientsList);
-    }
-
-    public void sortIngredientABV() {
-        shellSort.sortABV(IngredientsList);
-    }*/
-
     public linkedList<Ingredient> searchName(String searchText) {
         linkedList<Ingredient> results = new linkedList<>();
         if (IngredientsMap.get(searchText) != null) {
@@ -62,4 +60,27 @@ public class IngredientController {
             return IngredientsMap.keyContains(searchText);
             }
         }
+
+    public void refreshSearchListView(){
+        IngredientResults.getItems().clear();
+        for (linkedList.linkedNode temp = results.getHead(); temp != null; temp = temp.next){
+            IngredientResults.getItems().add(temp.getContents());
+        }
     }
+
+    public void ABVSort() {
+        shellSort.sortABV(results);
+        refreshSearchListView();
+    }
+
+
+    public void searchIngredients() {
+        results = searchName(searchBox.getText());
+        refreshSearchListView();
+    }
+
+    public void AlphabetSort() {
+        shellSort.sortAlpha(results);
+        refreshSearchListView();
+    }
+}
