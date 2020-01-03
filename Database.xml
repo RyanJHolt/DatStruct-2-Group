@@ -1,3 +1,18 @@
 <object-stream>
-  <null/>
+  <utils.hashMap>
+    <hashArray>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+    </hashArray>
+    <capacity>10</capacity>
+    <size>0</size>
+  </utils.hashMap>
 </object-stream>

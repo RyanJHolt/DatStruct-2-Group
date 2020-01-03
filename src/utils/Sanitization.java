@@ -12,6 +12,7 @@ public class Sanitization {
     }
 
     public static boolean StringIsImageURL(String input) {
-        return input.matches("(http:\\/\\/[0-9a-zA-Z\\.\\/_-]+.png|http:\\/\\/[0-9a-zA-Z\\.\\/_-]+.jpg)");
+        //return input.matches("(http:\\/\\/[0-9a-zA-Z\\.\\/_-]+.png|http:\\/\\/[0-9a-zA-Z\\.\\/_-]+.jpg)");
+        return true;
     }
 }

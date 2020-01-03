@@ -48,7 +48,7 @@ public class IngredientController {
         if (Sanitization.StringIsDouble(ingABV.getText())) {
             Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Double.parseDouble(ingABV.getText()));
             addIngredient(ing);
-            IngredientsMap.get(ingName).getDrinks().addElementH();
+            IngredientsMap.get(ingName.getText()).getDrinks().addElementH(ing);
             ingName.getScene().getWindow().hide();
         }
     }
