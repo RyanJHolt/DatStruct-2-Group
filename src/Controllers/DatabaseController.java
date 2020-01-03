@@ -55,7 +55,7 @@ public class DatabaseController {
     public void getIngredients() {
         Ingredient ingredient = (Ingredient) DrinkList.getSelectionModel().getSelectedItem();
         DrinkList.getItems().clear();
-        for (linkedList.linkedNode temp = ingredient.getDrinks().getHead();temp != null; temp = temp.next){
+        for (linkedList.linkedNode temp = ingredient.getDrinks().getHead(); temp != null; temp = temp.next){
             DrinkList.getItems().add(temp.getContents());
         }
     }
