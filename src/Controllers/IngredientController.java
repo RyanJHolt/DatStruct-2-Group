@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Drink;
 import Models.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -48,6 +49,7 @@ public class IngredientController {
         if (Sanitization.StringIsDouble(ingABV.getText())) {
             Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
             addIngredient(ing);
+            IngredientsMap.get(ingName).getDrinks().addElementH();
             ingName.getScene().getWindow().hide();
         }
     }
