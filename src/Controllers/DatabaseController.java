@@ -44,19 +44,23 @@ public class DatabaseController {
         }
     }
 
-    public void getDrinks() {
+    public void getIngredients() {
         Drink drink = (Drink) DrinkList.getSelectionModel().getSelectedItem();
-        IngredientList.getItems().clear();
-        for (linkedList.linkedNode temp = drink.getRecipe().getHead();temp != null; temp = temp.next){
-            IngredientList.getItems().add(temp.getContents());
+        if (drink.getRecipe().size()!=0) {
+            IngredientList.getItems().clear();
+            for (linkedList.linkedNode temp = drink.getRecipe().getHead(); temp != null; temp = temp.next) {
+                IngredientList.getItems().add(temp.getContents());
+            }
         }
     }
 
-    public void getIngredients() {
+    public void getDrinks() {
         Ingredient ingredient = (Ingredient) DrinkList.getSelectionModel().getSelectedItem();
-        DrinkList.getItems().clear();
-        for (linkedList.linkedNode temp = ingredient.getDrinks().getHead(); temp != null; temp = temp.next){
-            DrinkList.getItems().add(temp.getContents());
+        if (ingredient.getDrinks().size()!=0) {
+            DrinkList.getItems().clear();
+            for (linkedList.linkedNode temp = ingredient.getDrinks().getHead(); temp != null; temp = temp.next) {
+                DrinkList.getItems().add(temp.getContents());
+            }
         }
     }
 
