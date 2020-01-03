@@ -77,7 +77,7 @@ public class DrinkController {
             Ingredient ingNameObj = (Ingredient)ingredientList.getSelectionModel().getSelectedItem();
             String ingName = ingNameObj.getName(); //need to do this to get the name of the ingredient first
             linkedList<Ingredient> ingredients = new linkedList<>();
-            hashMap.hashNode tempNode = new hashMap.hashNode(ingName, ingredientList.getSelectionModel().getSelectedItem());
+            hashMap.hashNode tempNode = new hashMap.hashNode(ingName, ingNameObj);
             Ingredient temp = (Ingredient)tempNode.getContent();
             ingredients.addElementH(temp, 0);
             Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), ingredients);
