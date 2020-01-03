@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.Arrays;
-
 @SuppressWarnings({"unchecked", "rawtypes", "unused"})
 public class hashMap<k, c> {
     //used to store hash chains
@@ -96,17 +94,16 @@ public class hashMap<k, c> {
         return null;
     }
 
-    public linkedList keyContains(String search){ //searches hashMap and returns a list of any nodes with keys that contain the search string
+    public linkedList keyContains(String search) { //searches hashMap and returns a list of any nodes with keys that contain the search string
         linkedList results = new linkedList(); //creates new linkedList to store results of search
         for (hashNode temp : hashArray) //for each loop that runs through each node in the array
             while (temp != null) { //if a node exists in that slot of the array the next line checks if its key contains the search term
                 if (temp.getKey().toUpperCase().contains(search.toUpperCase())) {
                     results.addElementH(temp.getContent()); //if it does it adds it to the array
-                } temp = temp.next; //then tries to repeat along the chain
+                }
+                temp = temp.next; //then tries to repeat along the chain
             }
-        if (results.size()==0){
-            return null;
-        } return results; //returns the list of nodes
+        return results; //returns the list of nodes
     }
 
     public void clear(){
