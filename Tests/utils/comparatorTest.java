@@ -54,12 +54,12 @@ class comparatorTest {
 
     @Test
     void alphabetical() {
-        assertTrue(comparator.alphabetical(DrinkList1.getHead(),DrinkList2.getHead()));
-        assertFalse(comparator.alphabetical(DrinkList2.getHead(),DrinkList1.getHead()));
-        assertFalse(comparator.alphabetical(IngredientList1.getHead(),IngredientList2.getHead()));
-        assertTrue(comparator.alphabetical(IngredientList2.getHead(),DrinkList1.getHead()));
-        assertTrue(comparator.alphabetical(IngredientList2.getHead(),IngredientList2.getHead()));
-        assertTrue(comparator.alphabetical(DrinkList1.getHead(),DrinkList1.getHead()));
+        assertFalse(comparator.alphabetical(DrinkList1.getHead(), DrinkList2.getHead()));
+        assertTrue(comparator.alphabetical(DrinkList2.getHead(), DrinkList1.getHead()));
+        assertTrue(comparator.alphabetical(IngredientList1.getHead(), IngredientList2.getHead()));
+        assertFalse(comparator.alphabetical(IngredientList2.getHead(), DrinkList1.getHead()));
+        assertTrue(comparator.alphabetical(IngredientList2.getHead(), IngredientList2.getHead()));
+        assertTrue(comparator.alphabetical(DrinkList1.getHead(), DrinkList1.getHead()));
     }
 
     @Test

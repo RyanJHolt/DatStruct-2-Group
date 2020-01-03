@@ -14,6 +14,7 @@ public class Ingredient {
         this.name = name;
         this.description = description;
         this.ABV = ABV;
+        Drinks = new linkedList();
     }
 
     public boolean contains(String compare) {
@@ -53,15 +54,15 @@ public class Ingredient {
         Drinks = drinks;
     }
 
-    private void addDrink(Drink drink){
-        Drinks.addElementT(drink);
+    public void addDrink(Drink drink){
+        Drinks.addElementH(drink);
     }
 
-    private void removeDrink(int index){
+    public void removeDrink(int index){
         Drinks.deleteElement(index);
     }
 
-    private void editDrink(int index,Drink drink){
+    public void editDrink(int index,Drink drink){
         Drinks.updateElement(index,drink);
     }
 

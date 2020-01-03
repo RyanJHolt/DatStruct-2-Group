@@ -3,15 +3,23 @@ package Controllers;
 import Models.Drink;
 import Models.Ingredient;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import utils.*;
+import utils.Sanitization;
+import utils.hashMap;
+import utils.linkedList;
+import utils.shellSort;
 
-@SuppressWarnings({"unchecked", "unused", "rawtypes"})
+@SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class IngredientController {
 
-    //public static linkedList<Ingredient> IngredientsList = new linkedList();
+    public linkedList results = new linkedList();
     public static hashMap<String, Ingredient> IngredientsMap = new hashMap<>();
-
+    @FXML
+    ListView IngredientResults;
+    @FXML
+    TextField searchBox;
     @FXML
     TextField ingName;
     @FXML
@@ -19,18 +27,9 @@ public class IngredientController {
     @FXML
     TextField ingABV;
 
-    public static hashMap<String, Ingredient> getIngredientMap() {
-        return IngredientsMap;
-    }
-
-    public static void setIngredientMap(hashMap<String, Ingredient> ingredientMap) {
-        IngredientsMap = ingredientMap;
-    }
-
     public void addIngredient(Ingredient ingredient) {
         IngredientsMap.add(ingredient.name, ingredient);
     }
-
 
     public void deleteIngredient(String name) {
         IngredientsMap.removeKey(name);
@@ -47,20 +46,12 @@ public class IngredientController {
     @FXML
     public void addIngredientToIngredientList() {
         if (Sanitization.StringIsDouble(ingABV.getText())) {
-            Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Integer.parseInt(ingABV.getText()));
+            Ingredient ing = new Ingredient(ingName.getText(), ingDescription.getText(), Double.parseDouble(ingABV.getText()));
             addIngredient(ing);
             IngredientsMap.get(ingName).getDrinks().addElementH();
             ingName.getScene().getWindow().hide();
         }
     }
-
-    /*public void sortIngredientAlphabet() {
-        shellSort.sortAlpha(IngredientsList);
-    }
-
-    public void sortIngredientABV() {
-        shellSort.sortABV(IngredientsList);
-    }*/
 
     public linkedList<Ingredient> searchName(String searchText) {
         linkedList<Ingredient> results = new linkedList<>();
@@ -71,4 +62,27 @@ public class IngredientController {
             return IngredientsMap.keyContains(searchText);
             }
         }
+
+    public void refreshSearchListView(){
+        IngredientResults.getItems().clear();
+        for (linkedList.linkedNode temp = results.getHead(); temp != null; temp = temp.next){
+            IngredientResults.getItems().add(temp.getContents());
+        }
     }
+
+    public void ABVSort() {
+        shellSort.sortABV(results);
+        refreshSearchListView();
+    }
+
+
+    public void searchIngredients() {
+        results = searchName(searchBox.getText());
+        refreshSearchListView();
+    }
+
+    public void AlphabetSort() {
+        shellSort.sortAlpha(results);
+        refreshSearchListView();
+    }
+}

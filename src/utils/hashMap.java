@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Arrays;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
+@SuppressWarnings({"unchecked", "rawtypes", "unused"})
 public class hashMap<k, c> {
     //used to store hash chains
     public hashNode[] hashArray;

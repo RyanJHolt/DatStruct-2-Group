@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Drink;
 import Models.Ingredient;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -15,8 +16,12 @@ import utils.shellSort;
 @SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class DrinkController {
 
-    //public static linkedList<Drink> DrinksList = new linkedList();
     public static hashMap<String, Drink> DrinksMap = new hashMap<>();
+    public linkedList results = new linkedList();
+    @FXML
+    TextField searchBox;
+    @FXML
+    ListView DrinkResults;
     @FXML
     TextField name;
     @FXML
@@ -26,21 +31,20 @@ public class DrinkController {
     @FXML
     TextArea description;
     @FXML
-    ListView<hashMap.hashNode> ingredientList;
+    ListView ingredientList;
 
     @FXML
     void initialize() {
         ingredientList.getItems().clear();
         ingredientList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        if (!IngredientController.getIngredientMap().isEmpty()) {
-            for (hashMap.hashNode tempNode : DrinksMap.hashArray) {
+        if (!IngredientController.getIngredientsMap().isEmpty()) {
+            for (hashMap.hashNode tempNode : IngredientController.getIngredientsMap().hashArray) {
                 while (tempNode != null) {
-                    ingredientList.getItems().add(tempNode);
+                    ingredientList.getItems().add(tempNode.getContent());
                     tempNode = tempNode.getNext();
                 }
             }
         }
-
     }
 
     public void addDrink(Drink drink) {
@@ -59,7 +63,7 @@ public class DrinkController {
         DrinksMap.removeKey(key);
     }
 
-    public hashMap<String, Drink> getDrinksMap() {
+    public static hashMap<String, Drink> getDrinksMap() {
         return DrinksMap;
     }
 
@@ -70,29 +74,41 @@ public class DrinkController {
     @FXML
     public void addDrinkToList() {
         if (Sanitization.StringIsImageURL(imageURL.getText())) {
-            linkedList<Ingredient> l = new linkedList<>();
-            l.addElementH((Ingredient) ingredientList.getSelectionModel().getSelectedItem().getContent(), 0);
-            Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), l);
+            linkedList<Ingredient> ingredients = new linkedList<>();
+            hashMap.hashNode tempNode = (hashMap.hashNode) ingredientList.getSelectionModel().getSelectedItem();
+            Ingredient temp = (Ingredient) tempNode.getContent();
+            ingredients.addElementH(temp, 0);
+            Drink d = new Drink(name.getText(), origin.getText(), description.getText(), imageURL.getText(), ingredients);
             addDrink(d);
+            IngredientController.getIngredientsMap().get(temp.getName()).getDrinks().addElementT(d);
             imageURL.getScene().getWindow().hide();
         }
     }
 
-    public void sortDrinkAlphabet(linkedList<Drink> listToSort) {
-        shellSort.sortAlpha(listToSort);
-    }
-
-    public void sortDrinkABV(linkedList<Drink> listToSort) {
-        shellSort.sortABV(listToSort);
-    }
-
     public linkedList<Drink> searchName(String searchText) {
-        linkedList<Drink> results = new linkedList<>();
-        if (DrinksMap.get(searchText) != null) {
-            results.addElementT(DrinksMap.get(searchText));
-            return results;
-        } else {
-            return DrinksMap.keyContains(searchText);
+        return DrinksMap.keyContains(searchText);
+    }
+
+    public void refreshSearchListView(){
+        DrinkResults.getItems().clear();
+        for (linkedList.linkedNode temp = results.getHead(); temp != null; temp = temp.next){
+            DrinkResults.getItems().add(temp.getContents());
         }
+    }
+
+    public void ABVSort() {
+        shellSort.sortABV(results);
+        refreshSearchListView();
+    }
+
+
+    public void searchDrink() {
+        results = searchName(searchBox.getText());
+        refreshSearchListView();
+    }
+
+    public void AlphabetSort() {
+        shellSort.sortAlpha(results);
+        refreshSearchListView();
     }
 }

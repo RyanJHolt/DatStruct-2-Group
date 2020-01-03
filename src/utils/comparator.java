@@ -69,11 +69,15 @@ public class comparator {
         }
         int i = 0; //initialise loop variable for comparing the chars
         do { //in the case that both chars match the loop continues until either one of the words ends or it finds too letters that dont match
-            firstObj = objName1.toUpperCase().charAt(i);
-            secObj = objName2.toUpperCase().charAt(i);
+            if (i < objName1.length()){
+                firstObj = objName1.toUpperCase().charAt(i);
+            } else firstObj = 0;
+            if (i < objName2.length()){
+                secObj = objName2.toUpperCase().charAt(i);
+            } else secObj = 0;
             ++i;
-        } while (firstObj == secObj && i < objName1.length() && i < objName2.length());
-        return firstObj <= secObj; //returns true if the first word is before the second word in alphabetical order
+        } while (firstObj == secObj && (i < objName1.length() || i < objName2.length()));
+        return firstObj >= secObj; //returns true if the first word is after the second word in alphabetical order
     }
 
     //small function to check if the name of of ingredients or drinks contains a string
