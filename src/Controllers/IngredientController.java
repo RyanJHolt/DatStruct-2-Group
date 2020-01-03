@@ -1,8 +1,8 @@
 package Controllers;
 
 import Models.Ingredient;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import utils.Sanitization;
@@ -10,7 +10,7 @@ import utils.hashMap;
 import utils.linkedList;
 import utils.shellSort;
 
-@SuppressWarnings({"unchecked", "unused"})
+@SuppressWarnings({"rawtypes", "unchecked", "unused"})
 public class IngredientController {
 
     public linkedList results = new linkedList();

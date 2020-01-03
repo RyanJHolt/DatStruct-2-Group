@@ -4,27 +4,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.IngredientController">
-    <children>
-        <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
-            <children>
-                <TextField fx:id="ingName" promptText="Name...">
-                    <FlowPane.margin>
-                        <Insets bottom="20.0" />
-                    </FlowPane.margin>
-                </TextField>
-                <TextField fx:id="ingDescription" promptText="Short description...">
-                    <FlowPane.margin>
-                        <Insets bottom="20.0" />
-                    </FlowPane.margin>
-                </TextField>
-                <TextField fx:id="ingABV" layoutX="49.0" layoutY="210.0" promptText="ABV (e.g. 8, 20, 35...)">
-                    <FlowPane.margin>
-                        <Insets bottom="20.0" />
-                    </FlowPane.margin>
-                </TextField>
-                <Button fx:id="addIngredient" mnemonicParsing="false" onAction="#addIngredientToIngredientList" prefHeight="25.0" prefWidth="151.0" text="Add Ingredient" />
-            </children>
-        </FlowPane>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.IngredientController">
+    <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <TextField fx:id="ingName" promptText="Name...">
+            <FlowPane.margin>
+                <Insets bottom="20.0"/>
+            </FlowPane.margin>
+        </TextField>
+        <TextField fx:id="ingDescription" promptText="Short description...">
+            <FlowPane.margin>
+                <Insets bottom="20.0"/>
+            </FlowPane.margin>
+        </TextField>
+        <TextField fx:id="ingABV" layoutX="49.0" layoutY="210.0" promptText="ABV (e.g. 8, 20, 35...)">
+            <FlowPane.margin>
+                <Insets bottom="20.0"/>
+            </FlowPane.margin>
+        </TextField>
+        <Button fx:id="addIngredient" mnemonicParsing="false" onAction="#addIngredientToIngredientList"
+                prefHeight="25.0" prefWidth="151.0" text="Add Ingredient"/>
+    </FlowPane>
 </AnchorPane>

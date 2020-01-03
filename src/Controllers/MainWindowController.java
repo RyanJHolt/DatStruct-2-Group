@@ -101,6 +101,21 @@ public class MainWindowController {
     }
 
     @FXML
+    void SearchAllWindow(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../FXML/SearchAll.fxml"));
+            Stage myStage = new Stage();
+            myStage.setTitle("View All");
+            myStage.setScene(new Scene(root, 600, 400));
+            myStage.setResizable(false);
+            myStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     void DatabaseWindow() {
         Parent root;
         try {

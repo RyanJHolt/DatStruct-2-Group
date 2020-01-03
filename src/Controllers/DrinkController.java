@@ -63,7 +63,7 @@ public class DrinkController {
         DrinksMap.removeKey(key);
     }
 
-    public hashMap<String, Drink> getDrinksMap() {
+    public static hashMap<String, Drink> getDrinksMap() {
         return DrinksMap;
     }
 
