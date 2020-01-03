@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Drink;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -22,5 +23,12 @@ public class RemoveDrinkController {
                 }
             }
         }
+    }
+
+    @FXML
+    public void removeDrink() {
+        Drink d = (Drink)drink.getSelectionModel().getSelectedItem();
+        String dName = d.getName();
+        DrinkController.deleteDrink(dName);
     }
 }

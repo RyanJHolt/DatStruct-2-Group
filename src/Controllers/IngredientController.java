@@ -31,7 +31,7 @@ public class IngredientController {
         IngredientsMap.add(ingredient.name, ingredient);
     }
 
-    public void deleteIngredient(String name) {
+    public static void deleteIngredient(String name) {
         IngredientsMap.removeKey(name);
     }
 

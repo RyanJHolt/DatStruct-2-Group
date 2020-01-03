@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -22,5 +23,11 @@ public class RemoveIngredientController {
                 }
             }
         }
+    }
+
+    public void removeIngredient() {
+        Ingredient i = (Ingredient)ing.getSelectionModel().getSelectedItem();
+        String iName = i.getName();
+        IngredientController.deleteIngredient(iName);
     }
 }

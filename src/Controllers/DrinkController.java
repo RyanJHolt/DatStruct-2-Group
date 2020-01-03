@@ -2,7 +2,6 @@ package Controllers;
 
 import Models.Drink;
 import Models.Ingredient;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -59,7 +58,7 @@ public class DrinkController {
         DrinksList.updateElement(n, drink);
     }*/
 
-    public void deleteDrink(String key) {
+    public static void deleteDrink(String key) {
         DrinksMap.removeKey(key);
     }
 
